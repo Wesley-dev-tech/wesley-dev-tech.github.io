@@ -27,7 +27,7 @@ const TAAL_NL = {
     "groet.middag": "Goeiemiddag, ik ben",
     "groet.avond": "Goeienavond, ik ben",
     "groet.nacht": "Nog wakker? Ik ben",
-    "hero.intro": "Vroeger hield ik de boeken in balans, nu mijn haakjes. Ik ruilde Excel in voor VS Code, en tot nu toe vroeg niemand me een btw-aangifte in JavaScript. Hieronder vind je wat ik bouwde tijdens mijn opleiding, van mijn allereerste Flexbox-pagina (ja, die div staat eindelijk in het midden) tot een prijscalculator die een offerte als pdf uitspuugt. Een idee voor een website of een bug gespot? Stuur me een bericht. Complimenten compileren ook.",
+    "hero.intro": "console.log(\"carrièreswitch\") → Boekhouder.exe reageert niet meer. Developer.exe wordt gestart… Na jaren debet en credit is het nu debuggen en committen. Scroll naar beneden voor mijn projecten, van een pagina die eindelijk een div centreert tot een calculator die offertes als pdf afdrukt. Een bug gevonden? Dat is een feature. Een idee? Stuur me een bericht.",
     "hero.projecten": "Bekijk mijn projecten",
     "hero.contact": "Neem contact op",
     "hero.opleiding": "Opleiding",
