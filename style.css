@@ -62,7 +62,7 @@
     --select-arrow: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%231f1d1a' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
 }
 
-/* Afbeeldingen met een versie per thema (profielfoto en poster): alleen die van het
+/* Afbeeldingen met een versie per thema (profielfoto): alleen die van het
    actieve thema tonen. De andere is lazy, dus die laadt pas na het wisselen.
    De :root-selector maakt de regel sterk genoeg tegen bv. ".hero-photo img". */
 :root:not([data-theme="light"]) .theme-light-only,
@@ -864,131 +864,18 @@ h3 {
     font-weight: 500;
 }
 
-/* Over mij en opleiding: grote poster naast de tekst, zoals een afbeelding naast een artikel.
-   Allebei bovenaan uitgelijnd, gelijk met de sectietitel; ook de uitgeklapte tekst blijft in
-   de tekstkolom. Over mij zet de poster links, de opleiding (article-layout-reverse) rechts:
-   daar staat de poster in de HTML na de tekst. */
+/* Over mij en opleiding: de tekst vult de volledige breedte van de kaart */
 .article-layout {
     display: flex;
-    align-items: flex-start;
-    gap: clamp(28px, 4vw, 48px);
-}
-
-.article-poster {
-    flex: 0 0 42%;
-    max-width: 340px;
-    margin: 0;
-    /* Schuift mee naar beneden terwijl je de uitgeklapte tekst leest */
-    position: sticky;
-    top: calc(var(--header-height) + 24px);
-}
-
-.article-poster img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    background: var(--bg-secondary);
-}
-
-.article-poster figcaption {
-    margin-top: 10px;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    font-size: .75rem;
-    text-align: center;
+    flex-direction: column;
 }
 
 .article-text {
-    flex: 1 1 0;
     min-width: 0;
 }
 
-/* Desktop: poster en tekstkolom even hoog, zodat "Lees meer" onderaan gelijk staat met de
-   poster. Beide kaarten geven de poster dezelfde breedte. */
-@media (min-width: 1200px) {
-    .article-poster {
-        flex: 0 0 46%;
-        max-width: none;
-    }
-
-    /* Over mij: de tekstkolom bepaalt de hoogte en Flexbox rekt de poster mee. De afbeelding
-       vult de rest naast het onderschrift; wat niet past, valt rechts weg, zodat logo, titel
-       en diensten links op de poster zichtbaar blijven.
-       Opleiding: andersom. De volledige poster bepaalt de hoogte en de tekstkolom rekt mee. */
-    .article-layout:not(.article-layout-reverse) .article-poster,
-    .article-layout-reverse .article-text {
-        display: flex;
-        flex-direction: column;
-        align-self: stretch;
-    }
-
-    /* Uitgeklapt blijft de poster op de ingeklapte hoogte, gemeten door script.js */
-    .article-layout:not(.article-layout-reverse):has(.read-more.is-open) .article-poster {
-        align-self: flex-start;
-        height: var(--tekst-hoogte, auto);
-    }
-
-    /* Hoogte 0 als vertrekpunt: zo telt alleen de tekst mee voor de hoogte van de rij,
-       ook als de tekst korter is dan de poster van nature zou zijn */
-    .article-layout:not(.article-layout-reverse) .article-poster img {
-        flex: 1 1 auto;
-        height: 0;
-        min-height: 0;
-        object-fit: cover;
-        object-position: 15% top;
-    }
-
-    /* Opleiding: ingeklapt vult de tekst de vrije ruimte, met "Lees meer" onderaan. De poster
-       is iets breder, zodat hij ook in de smalle tekstkolom van 1200 tot 1399px hoog genoeg is. */
-    .article-layout-reverse .article-poster {
-        flex-basis: 50%;
-    }
-
-    .js .article-layout-reverse .read-more:not(.is-open) {
-        flex: 1 1 0;
-        min-height: 0;
-        grid-template-rows: 1fr;
-        mask-image: linear-gradient(#000 calc(100% - 4.5em), transparent);
-    }
-
-    .article-layout-reverse .read-more-toggle {
-        align-self: flex-start;
-    }
-}
-
-/* Onder desktop (zelfde grens als het hamburgermenu): kop, poster en tekst onder elkaar.
-   De poster loopt precies even breed als de tekst, zoals een afbeelding bovenaan een artikel. */
-@media (max-width: 1199.98px) {
-    .article-layout {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-    }
-
-    /* De tekstkolom valt weg, zodat de kop met order boven de poster komt, ook waar de
-       poster in de HTML na de tekst staat */
-    .article-text {
-        display: contents;
-    }
-
-    .article-text > .card-header {
-        order: -2;
-    }
-
-    .article-text > .read-more-toggle {
-        align-self: flex-start;
-    }
-
-    .article-poster {
-        flex: none;
-        order: -1;
-        position: static;
-        width: 100%;
-        max-width: none;
-        margin-bottom: 28px;
-    }
+.article-text > .read-more-toggle {
+    align-self: flex-start;
 }
 
 /* Cv: in de kaart werkervaring links, opleidingen en profiel rechts, zoals op het papieren cv.

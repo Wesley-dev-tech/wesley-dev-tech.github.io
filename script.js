@@ -687,25 +687,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Over mij op desktop: ingeklapt rekt style.css de poster zelf uit tot de hoogte van de
-    // tekstkolom. Die hoogte wordt hier bewaard, zodat de poster na "Lees meer" niet meegroeit.
-    // Bij de opleiding bepaalt de poster zelf de hoogte; daar valt niets te meten.
-    const desktopWeergave = window.matchMedia("(min-width: 1200px)");
-    const artikelIndelingen = document.querySelectorAll(".article-layout:not(.article-layout-reverse)");
-
-    function maakPosterEvenHoog(indeling) {
-        const tekst = indeling.querySelector(".article-text");
-
-        if (!desktopWeergave.matches) {
-            indeling.style.removeProperty("--tekst-hoogte");
-        } else if (!tekst.querySelector(".read-more").classList.contains("is-open")) {
-            indeling.style.setProperty("--tekst-hoogte", tekst.offsetHeight + "px");
-        }
-    }
-
     function maakAlleKaartenEvenHoog() {
         maakKaartenEvenHoog(projectKaarten);
-        artikelIndelingen.forEach(maakPosterEvenHoog);
     }
 
     // Opnieuw meten zodra het lettertype geladen is, bij een andere schermbreedte
