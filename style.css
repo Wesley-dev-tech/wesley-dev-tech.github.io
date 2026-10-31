@@ -931,9 +931,34 @@ h3 {
     }
 }
 
-/* Tech stack: ingeklapt blijft het kopje Frontend met de eerste rij logo's zichtbaar */
+/* Tech stack: dezelfde vlakken als het cv. Onder elkaar, vanaf 1400px twee per rij
+   (Frontend en Backend), daaronder Tools en Concepts over de volle breedte. */
+.skills-columns {
+    display: grid;
+    gap: 20px;
+}
+
+@media (min-width: 1400px) {
+    .skills-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Tools (veel logo's) en Concepts (tekst) over de volle breedte, zonder leeg vlak ernaast */
+    .skills-columns > :nth-child(n + 3) {
+        grid-column: 1 / -1;
+    }
+}
+
+/* De vlakken zorgen zelf voor de scheiding; de lijn tussen de groepen valt weg */
+.skills-columns .skill-group + .skill-group {
+    margin-top: 0;
+    padding-top: clamp(20px, 2.5vw, 28px);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Ingeklapt blijft het begin van de eerste vlakken zichtbaar, net zoals bij het cv */
 .skills-card .read-more-inner {
-    min-height: 9em;
+    min-height: 16em;
 }
 
 /* Ingeklapt blijft het begin van beide kolommen zichtbaar, net zoals bij de andere kaarten */
