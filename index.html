@@ -37,21 +37,21 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
 
-    <link rel="stylesheet" href="style.css?v=134">
-    <link rel="icon" href="favicon.ico?v=134" sizes="16x16 32x32 48x48">
+    <link rel="stylesheet" href="style.css?v=135">
+    <link rel="icon" href="favicon.ico?v=135" sizes="16x16 32x32 48x48">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <!-- De teksten per taal, en daarna script.js. Allebei in de head, zodat het thema en de taal al
          staan voor de pagina getekend wordt. De rest van script.js wacht zelf tot de HTML geladen is. -->
-    <script src="lang/en.js?v=134"></script>
-    <script src="lang/nl.js?v=134"></script>
-    <script src="script.js?v=134"></script>
+    <script src="lang/en.js?v=135"></script>
+    <script src="lang/nl.js?v=135"></script>
+    <script src="script.js?v=135"></script>
 
     <!-- jsPDF en mijn eigen script dat er de cv-pdf mee tekent; defer laadt ze zonder de pagina op te houden -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
         integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous"
         defer></script>
-    <script src="cv-pdf.js?v=134" defer></script>
+    <script src="cv-pdf.js?v=135" defer></script>
 </head>
 
 <body>
@@ -159,13 +159,7 @@
                         Student Full Stack &amp; AI Automation Developer
                     </p>
 
-                    <p class="hero-intro" data-i18n="hero.intro">
-                        After several years in administration and accounting, I'm now learning
-                        to build websites, web applications and custom software. Below you'll
-                        find the projects from my course, from my first Flexbox page to a price
-                        calculator that creates a PDF quote. Have an idea for a website or a
-                        question about my code? Feel free to send me a message.
-                    </p>
+                    <p class="hero-intro" data-i18n="hero.intro">Former accountant, now a full stack developer in training. I traded spreadsheets for source code and kept my eye for detail. Below you'll find what I built during my course, from my very first Flexbox page to a price calculator that rolls out a PDF quote. Got an idea for a website or a question about my code? Send me a message, I reply faster than my first builds ran.</p>
 
                     <div class="hero-actions d-flex flex-wrap gap-3">
                         <a class="btn" href="#projects">
@@ -253,50 +247,23 @@
 
                                 <div>
                                     <span class="card-label" data-i18n="about.label">My background</span>
-                                    <h3 data-i18n="about.kop">From accounting to IT</h3>
+                                    <h3 data-i18n="about.kop">From balance sheets to stylesheets</h3>
                                     <p class="card-subtitle" data-i18n="about.ondertitel">Full Stack Developer in training</p>
                                 </div>
                             </div>
 
-                            <p class="lead-text" data-i18n="about.lead">
-                                After several years of experience in accounting and administration, I made a
-                                deliberate switch to IT. My previous roles taught me to work accurately and in
-                                a structured way. I learned to keep an eye on deadlines, handle sensitive
-                                information with care and approach problems analytically.
-                            </p>
+                            <p class="has-icon lead-text"><i class="fa-solid fa-scale-balanced text-icon" aria-hidden="true"></i><span data-i18n="about.lead">For years I worked in accounting and administration, where every cent had to add up. Then I made a deliberate switch to IT. What I brought along: precision, structure, respect for deadlines and a healthy distrust of numbers that look too good to be true.</span></p>
 
                             <!-- Ingeklapt tot de bezoeker op "Lees meer" klikt (zie script.js) -->
                             <div class="read-more" id="about-more">
                                 <div class="read-more-inner">
-                                    <p data-i18n="about.p1">
-                                        Over the past few years, my interest in IT and technology kept growing. I
-                                        became more and more curious about how websites and applications work behind
-                                        the scenes. At some point I no longer wanted to just use them; I wanted to
-                                        understand how they are built. That curiosity is what finally made me
-                                        retrain as a developer.
-                                    </p>
+                                    <p class="has-icon"><i class="fa-solid fa-magnifying-glass text-icon" aria-hidden="true"></i><span data-i18n="about.p1">My curiosity about IT grew year after year. Just using websites and apps was no longer enough; I wanted to know what happens behind the button. In the end curiosity won and I retrained as a developer. No regrets, just a lot more browser tabs.</span></p>
 
-                                    <p data-i18n="about.p2">
-                                        What I enjoy most about programming is finding solutions. Not everything
-                                        works as expected straight away, and that is exactly what makes it
-                                        interesting. I try to understand where something goes wrong, test different
-                                        options and adjust my approach until I find a solution. My accounting
-                                        background comes in handy here, especially when it comes to logical
-                                        thinking and attention to detail.
-                                    </p>
+                                    <p class="has-icon"><i class="fa-solid fa-bug text-icon" aria-hidden="true"></i><span data-i18n="about.p2">What I enjoy most is finding solutions. Code rarely works the first time, and honestly, that's the fun part. I figure out where it breaks, test a few ideas and keep adjusting until the bug gives up. My accounting years help here: logical thinking and an eye for detail work just as well in code.</span></p>
 
-                                    <p data-i18n="about.p3">
-                                        Moving into IT was a conscious choice. I know that learning to program takes
-                                        time and perseverance, but I'm motivated to keep growing. By practising
-                                        regularly, taking feedback on board and learning from my mistakes, I'm
-                                        building my knowledge step by step.
-                                    </p>
+                                    <p class="has-icon"><i class="fa-solid fa-stairs text-icon" aria-hidden="true"></i><span data-i18n="about.p3">I know that learning to program takes time and perseverance. So I practise a lot, take feedback on board and learn from my mistakes. Every mistake teaches me something, and Git remembers them all anyway.</span></p>
 
-                                    <p data-i18n="about.p4">
-                                        I want to combine my previous work experience with my new technical skills
-                                        to build applications that don't just work well, but are also practical and
-                                        user-friendly.
-                                    </p>
+                                    <p class="has-icon"><i class="fa-solid fa-puzzle-piece text-icon" aria-hidden="true"></i><span data-i18n="about.p4">My goal: combine my work experience with my new technical skills to build applications that don't just work, but are practical and pleasant to use. Code that works is good. Code that people enjoy using is better.</span></p>
                                 </div>
                             </div>
 
@@ -334,59 +301,21 @@
                                 </div>
                             </div>
 
-                            <p class="lead-text" data-i18n="education.lead">
-                                I'm taking the full-time day course Full Stack &amp; AI Automation
-                                Developer at SyntraPXL. Step by step, this course is teaching me how
-                                to build websites and applications myself.
-                            </p>
+                            <p class="has-icon lead-text"><i class="fa-solid fa-graduation-cap text-icon" aria-hidden="true"></i><span data-i18n="education.lead">I'm following the full-time day course Full Stack &amp; AI Automation Developer at SyntraPXL. Step by step I'm learning to build websites and applications myself, one commit at a time.</span></p>
 
                             <div class="read-more" id="education-more">
                                 <div class="read-more-inner">
-                                    <p data-i18n="education.p1">
-                                        We started with HTML and CSS. Along the way I learned to work with
-                                        Flexbox and responsive design, so websites work well on different
-                                        screen sizes. Then came Bootstrap and Tailwind. With Bootstrap Grid I
-                                        learned to build pages from rows and columns, while Tailwind taught me
-                                        to style elements directly with classes.
-                                    </p>
+                                    <p class="has-icon"><i class="fa-solid fa-code text-icon" aria-hidden="true"></i><span data-i18n="education.p1">We started with HTML and CSS, the foundation of every page. Then came Flexbox and responsive design, so a site looks good on a phone, a tablet and that one ultra-wide monitor. After that, Bootstrap and Tailwind: with Bootstrap Grid I build pages from rows and columns, with Tailwind I style straight from my classes.</span></p>
 
-                                    <p data-i18n="education.p2">
-                                        The visual side of websites got plenty of attention too. I learned
-                                        to use Google Fonts for typefaces, Font Awesome for icons and
-                                        Coolors.co to pick colour combinations that go well together. With
-                                        that knowledge I have since built several projects, including my
-                                        own portfolio.
-                                    </p>
+                                    <p class="has-icon"><i class="fa-solid fa-palette text-icon" aria-hidden="true"></i><span data-i18n="education.p2">The look of a site got plenty of attention too: Google Fonts for typefaces, Font Awesome for icons and Coolors.co for colour palettes that actually go together. With that toolkit I've built several projects since, including the portfolio you're scrolling through right now.</span></p>
 
-                                    <p data-i18n="education.p3">
-                                        Besides building and styling websites, I also learned how relational
-                                        databases work. In MySQL I practised building tables, normalising
-                                        data and writing SQL queries. We're currently working on JavaScript
-                                        and APIs, which is how I'm expanding my programming knowledge further.
-                                    </p>
+                                    <p class="has-icon"><i class="fa-solid fa-database text-icon" aria-hidden="true"></i><span data-i18n="education.p3">Next up: relational databases. In MySQL I practised building tables, normalising data and writing SQL queries, until JOIN no longer sounded like a threat. Right now we're working on JavaScript and APIs, so my code is starting to talk to the outside world.</span></p>
 
-                                    <p data-i18n="education.p4">
-                                        The course also introduced me to Agile and Scrum. Among other things,
-                                        we practised sprint planning, planning poker and tracking tasks on a
-                                        Kanban board in Trello. That gave me a better idea of how developers
-                                        work together in a team and organise their work.
-                                    </p>
+                                    <p class="has-icon"><i class="fa-solid fa-people-group text-icon" aria-hidden="true"></i><span data-i18n="education.p4">The course also introduced me to Agile and Scrum: sprint planning, planning poker and a Kanban board in Trello. It showed me how developers plan and build together as a team, and that estimating is often harder than coding.</span></p>
 
-                                    <p data-i18n="education.p5">
-                                        My goal is to build complete web applications on my own, from the
-                                        front end to the back end. I want to dive deeper into JavaScript and
-                                        TypeScript, learn to work with APIs and discover how I can use AI to
-                                        automate processes.
-                                    </p>
+                                    <p class="has-icon"><i class="fa-solid fa-flag-checkered text-icon" aria-hidden="true"></i><span data-i18n="education.p5">My goal is to build complete web applications on my own, from front end to back end. I want to go deeper into JavaScript and TypeScript, work with APIs and discover how AI can automate processes. Full stack, no shortcuts.</span></p>
 
-                                    <p data-i18n="education.p6">
-                                        Just as important to me is that I truly understand the code I write.
-                                        I don't want AI agents to generate code for me without knowing exactly
-                                        what it does. I want to be able to explain how my code works, why
-                                        certain choices were made and how to track down and fix bugs. I see AI
-                                        as a handy tool for learning and working more efficiently, not as a
-                                        replacement for my own knowledge and insight.
-                                    </p>
+                                    <p class="has-icon"><i class="fa-solid fa-brain text-icon" aria-hidden="true"></i><span data-i18n="education.p6">Just as important: I want to understand the code I write. I don't want AI agents generating code I can't explain. I want to know how it works, why I made certain choices and how to hunt down a bug. AI is a handy tool for learning and working faster, not a replacement for my own brain.</span></p>
                                 </div>
                             </div>
 
@@ -853,10 +782,7 @@
                         </div>
                     </div>
 
-                    <p class="lead-text" data-i18n="skills.lead">
-                        The languages, frameworks and tools I work with during my course and in my
-                        own projects, plus the way I plan and organise that work.
-                    </p>
+                    <p class="has-icon lead-text"><i class="fa-solid fa-layer-group text-icon" aria-hidden="true"></i><span data-i18n="skills.lead">The languages, frameworks and tools I build with during my course and in my own projects. Plus the way I keep all that work organised, so the chaos stays limited to my browser tabs.</span></p>
 
                     <!-- Ingeklapt tot de bezoeker op "Lees meer" klikt (zie script.js) -->
                     <div class="read-more" id="skills-more">
@@ -1077,33 +1003,19 @@
                                     <ul class="skill-concepts">
                                         <li>
                                             <i class="fa-solid fa-list-check" aria-hidden="true"></i>
-                                            <p data-i18n="skills.monday">
-                                                <strong>Monday</strong> — this is where I plan my tasks, track how far
-                                                a project has come and coordinate the work when we work as a team.
-                                            </p>
+                                            <p data-i18n="skills.monday"><strong>Monday</strong> — where I plan my tasks, follow up how far a project has come and coordinate the work when we build as a team. Fewer sticky notes, more overview.</p>
                                         </li>
                                         <li>
                                             <i class="fa-solid fa-people-group" aria-hidden="true"></i>
-                                            <p data-i18n="skills.scrum">
-                                                <strong>Scrum</strong> — in class I work in sprints: we estimate tasks
-                                                with planning poker, track them on a Kanban board in Trello and discuss
-                                                what could be better after every sprint.
-                                            </p>
+                                            <p data-i18n="skills.scrum"><strong>Scrum</strong> — in class we work in sprints: we estimate with planning poker, track tasks on a Kanban board in Trello and look back after every sprint. Spoiler: the estimate is always a little optimistic.</p>
                                         </li>
                                         <li>
                                             <i class="fa-solid fa-plug" aria-hidden="true"></i>
-                                            <p data-i18n="skills.rest">
-                                                <strong>REST API</strong> — with JavaScript I request data through HTTP
-                                                requests and show the API's response on my page.
-                                            </p>
+                                            <p data-i18n="skills.rest"><strong>REST API</strong> — with JavaScript I fetch data through HTTP requests and show the response on my page. 200 OK is my favourite number.</p>
                                         </li>
                                         <li>
                                             <i class="fa-solid fa-cubes" aria-hidden="true"></i>
-                                            <p data-i18n="skills.mcp">
-                                                <strong>MCP</strong> — I use it to connect AI assistants to my own
-                                                tools, such as GitHub and Google Drive, so they can work directly with
-                                                my files and data.
-                                            </p>
+                                            <p data-i18n="skills.mcp"><strong>MCP</strong> — I use it to connect AI assistants to my own tools, such as GitHub and Google Drive, so they can work directly with my files and data. Like handing my assistant a key, but only to the right rooms.</p>
                                         </li>
                                     </ul>
                                 </section>
@@ -1344,10 +1256,7 @@
                         <h2 class="section-title" data-i18n="contact.titel">Get in Touch</h2>
                     </div>
 
-                    <p class="footer-intro" data-i18n="contact.intro">
-                        A question about a project or about my code on GitHub?
-                        Feel free to send me a message or give me a call. I'd love to hear from you.
-                    </p>
+                    <p class="has-icon footer-intro"><i class="fa-solid fa-comments text-icon" aria-hidden="true"></i><span data-i18n="contact.intro">A question about a project, an idea for a website or curious about my code on GitHub? Send me a message or give me a call. I'd love to hear from you, and I promise my inbox has fewer bugs than my first projects.</span></p>
 
                     <!-- Formulier via Web3Forms: de access key vervangt mijn mailadres, dat dus niet in de
                          paginabron staat. Werkt ook in de ingebouwde browser van Facebook, Instagram en

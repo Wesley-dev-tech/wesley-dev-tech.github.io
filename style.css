@@ -718,6 +718,21 @@ h3 {
     margin-top: 18px;
 }
 
+/* Alinea met een koperen icoontje ervoor, zoals op mijn GitHub-profiel. Het icoon schaalt mee
+   met de lettergrootte (ook bij de grotere intro) en de tekst loopt netjes in een eigen kolom. */
+.has-icon {
+    display: flex;
+    align-items: baseline;
+    gap: .7em;
+}
+
+.text-icon {
+    flex: 0 0 1.15em;
+    color: var(--accent);
+    font-size: .9em;
+    text-align: center;
+}
+
 /* Lees meer: de rest van de tekst klapt vloeiend open via de rijhoogte.
    Ingeklapt blijft er een stukje zichtbaar dat zacht vervaagt. */
 .read-more {

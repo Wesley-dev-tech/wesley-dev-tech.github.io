@@ -27,10 +27,7 @@ const TAAL_NL = {
     "groet.middag": "Goeiemiddag, ik ben",
     "groet.avond": "Goeienavond, ik ben",
     "groet.nacht": "Nog wakker? Ik ben",
-    "hero.intro": "Na meerdere jaren in de administratie en de boekhouding leer ik nu websites, "
-        + "webapplicaties en software op maat bouwen. Hieronder staan de projecten uit mijn opleiding, "
-        + "van mijn eerste Flexbox-pagina tot een prijscalculator die een pdf-offerte maakt. Heb je een "
-        + "idee voor een website of een vraag over mijn code? Stuur me gerust een bericht.",
+    "hero.intro": "Ex-boekhouder, nu full stack developer in opleiding. Ik ruilde spreadsheets in voor broncode en hield mijn oog voor detail. Hieronder vind je wat ik bouwde tijdens mijn opleiding, van mijn allereerste Flexbox-pagina tot een prijscalculator die een offerte als pdf uitrolt. Een idee voor een website of een vraag over mijn code? Stuur me een bericht, ik antwoord sneller dan mijn eerste builds draaiden.",
     "hero.projecten": "Bekijk mijn projecten",
     "hero.contact": "Neem contact op",
     "hero.opleiding": "Opleiding",
@@ -49,61 +46,26 @@ const TAAL_NL = {
     // Over mij
     "about.titel": "Over mij",
     "about.label": "Mijn achtergrond",
-    "about.kop": "Van boekhouding naar IT",
+    "about.kop": "Van balansen naar stylesheets",
     "about.ondertitel": "Full Stack Developer in opleiding",
-    "about.lead": "Na meerdere jaren ervaring in boekhouding en administratie maakte ik bewust de overstap "
-        + "naar IT. In mijn vorige functies ontwikkelde ik een nauwkeurige en gestructureerde werkhouding. "
-        + "Ik leerde deadlines bewaken, zorgvuldig omgaan met gevoelige informatie en problemen op een "
-        + "analytische manier aanpakken.",
-    "about.p1": "De afgelopen jaren groeide mijn interesse in IT en technologie. Ik werd steeds "
-        + "nieuwsgieriger naar hoe websites en applicaties achter de schermen werken. Op een bepaald moment "
-        + "wilde ik niet langer alleen gebruiker zijn, maar ook begrijpen hoe zulke toepassingen worden "
-        + "gebouwd. Die nieuwsgierigheid gaf uiteindelijk de doorslag om me om te scholen tot developer.",
-    "about.p2": "Wat mij aanspreekt in programmeren, is het zoeken naar oplossingen. Niet alles werkt "
-        + "meteen zoals verwacht, en net dat maakt het interessant. Ik probeer te begrijpen waar iets fout "
-        + "loopt, test verschillende mogelijkheden en pas mijn aanpak aan tot ik een oplossing vind. Mijn "
-        + "ervaring in de boekhouding komt daarbij goed van pas, vooral wanneer het gaat om logisch "
-        + "nadenken en aandacht voor details.",
-    "about.p3": "De overstap naar IT is voor mij een bewuste keuze. Ik weet dat leren programmeren tijd "
-        + "en doorzettingsvermogen vraagt, maar ik ben gemotiveerd om me hierin verder te ontwikkelen. Door "
-        + "regelmatig te oefenen, feedback te verwerken en uit mijn fouten te leren, bouw ik stap voor "
-        + "stap mijn kennis op.",
-    "about.p4": "Ik wil mijn eerdere werkervaring combineren met mijn nieuwe technische vaardigheden om "
-        + "toepassingen te ontwikkelen die niet alleen goed werken, maar ook praktisch en "
-        + "gebruiksvriendelijk zijn.",
+    "about.lead": "Jarenlang werkte ik in de boekhouding en administratie, waar elke cent moest kloppen. Daarna koos ik bewust voor IT. Wat ik meenam: nauwkeurigheid, structuur, respect voor deadlines en een gezond wantrouwen tegenover cijfers die te mooi lijken om waar te zijn.",
+    "about.p1": "Mijn nieuwsgierigheid naar IT groeide elk jaar. Websites en apps gewoon gebruiken was niet meer genoeg; ik wilde weten wat er achter de knop gebeurt. Uiteindelijk won die nieuwsgierigheid en schoolde ik me om tot developer. Geen spijt, wel veel meer browsertabbladen.",
+    "about.p2": "Wat ik het leukst vind, is oplossingen zoeken. Code werkt zelden de eerste keer, en eerlijk: dat is net het leuke. Ik zoek uit waar het misloopt, test een paar ideeën en blijf bijsturen tot de bug opgeeft. Mijn jaren in de boekhouding helpen daarbij: logisch denken en oog voor detail werken in code net zo goed.",
+    "about.p3": "Ik weet dat leren programmeren tijd en doorzettingsvermogen vraagt. Daarom oefen ik veel, neem ik feedback ter harte en leer ik uit mijn fouten. Elke fout leert me iets, en Git onthoudt ze toch allemaal.",
+    "about.p4": "Mijn doel: mijn werkervaring combineren met mijn nieuwe technische kennis om applicaties te bouwen die niet alleen werken, maar ook praktisch en prettig zijn in gebruik. Code die werkt is goed. Code die mensen graag gebruiken is beter.",
     "leesMeer": "Lees meer",
     "leesMinder": "Lees minder",
 
     // Mijn opleiding
     "education.titel": "Mijn opleiding",
     "education.label": "Momenteel student",
-    "education.lead": "Ik volg de voltijdse dagopleiding Full Stack &amp; AI Automation Developer aan "
-        + "SyntraPXL. Tijdens deze opleiding leer ik stap voor stap hoe ik zelf websites en applicaties "
-        + "kan ontwikkelen.",
-    "education.p1": "We zijn gestart met HTML en CSS. Daarbij leerde ik werken met Flexbox en responsive "
-        + "design, zodat websites goed functioneren op verschillende schermformaten. Daarna kwamen "
-        + "Bootstrap en Tailwind aan bod. Met Bootstrap Grid leerde ik pagina’s opbouwen met rijen en "
-        + "kolommen. Met Tailwind oefende ik dan weer om elementen rechtstreeks via classes vorm te geven.",
-    "education.p2": "Ook het visuele aspect van websites kwam uitgebreid aan bod. Zo leerde ik werken "
-        + "met Google Fonts voor lettertypes, Font Awesome voor iconen en Coolors.co om kleurencombinaties "
-        + "te kiezen die goed bij elkaar passen. Met die kennis heb ik ondertussen verschillende projecten "
-        + "gemaakt, waaronder mijn eigen portfolio.",
-    "education.p3": "Naast het bouwen en vormgeven van websites heb ik ook geleerd hoe relationele "
-        + "databanken werken. In MySQL oefende ik met het opbouwen van tabellen, het normaliseren van "
-        + "gegevens en het schrijven van SQL-queries. Momenteel zijn we bezig met JavaScript en API’s, "
-        + "waarmee ik mijn programmeerkennis verder uitbreid.",
-    "education.p4": "Tijdens de opleiding maakte ik ook kennis met Agile en Scrum. We oefenden onder "
-        + "andere met het plannen van sprints, planning poker en het opvolgen van taken via een kanbanbord "
-        + "in Trello. Daardoor kreeg ik een beter beeld van hoe developers binnen een team samenwerken en "
-        + "hun werk organiseren.",
-    "education.p5": "Mijn doel is om zelfstandig volledige webapplicaties te kunnen bouwen, van de "
-        + "frontend tot de backend. Ik wil me verder verdiepen in JavaScript en TypeScript, leren werken "
-        + "met API’s en ontdekken hoe ik AI kan inzetten om processen te automatiseren.",
-    "education.p6": "Wat ik daarbij minstens even belangrijk vind, is dat ik de code die ik schrijf ook "
-        + "echt begrijp. Ik wil niet zomaar code laten genereren door AI-agents zonder te weten wat die "
-        + "precies doet. Ik wil zelf kunnen uitleggen hoe mijn code werkt, waarom bepaalde keuzes zijn "
-        + "gemaakt en hoe ik fouten kan opsporen en oplossen. AI zie ik als een handig hulpmiddel om bij "
-        + "te leren en efficiënter te werken, maar niet als een vervanging voor mijn eigen kennis en inzicht.",
+    "education.lead": "Ik volg de voltijdse dagopleiding Full Stack &amp; AI Automation Developer aan SyntraPXL. Stap voor stap leer ik zelf websites en applicaties bouwen, commit per commit.",
+    "education.p1": "We begonnen met HTML en CSS, de basis van elke pagina. Daarna volgden Flexbox en responsive design, zodat een site er goed uitziet op een gsm, een tablet en die ene ultrabrede monitor. Vervolgens Bootstrap en Tailwind: met Bootstrap Grid bouw ik pagina's uit rijen en kolommen, met Tailwind style ik rechtstreeks vanuit mijn classes.",
+    "education.p2": "Ook de look van een site kreeg veel aandacht: Google Fonts voor lettertypes, Font Awesome voor icoontjes en Coolors.co voor kleurenpaletten die echt bij elkaar passen. Met die gereedschapskist bouwde ik sindsdien al verschillende projecten, waaronder het portfolio waar je nu door scrollt.",
+    "education.p3": "Daarna: relationele databanken. In MySQL oefende ik tabellen opbouwen, data normaliseren en SQL-queries schrijven, tot JOIN niet meer als een dreigement klonk. Nu werken we met JavaScript en API's, zodat mijn code met de buitenwereld begint te praten.",
+    "education.p4": "De opleiding liet me ook kennismaken met Agile en Scrum: sprintplanning, planning poker en een Kanbanbord in Trello. Zo zag ik hoe developers samen plannen en bouwen als team, en dat inschatten vaak moeilijker is dan programmeren.",
+    "education.p5": "Mijn doel is om zelfstandig volledige webapplicaties te bouwen, van front-end tot back-end. Ik wil dieper duiken in JavaScript en TypeScript, werken met API's en ontdekken hoe AI processen kan automatiseren. Full stack, zonder shortcuts.",
+    "education.p6": "Minstens even belangrijk: ik wil de code die ik schrijf ook begrijpen. Ik wil geen AI-agents die code genereren die ik niet kan uitleggen. Ik wil weten hoe het werkt, waarom ik bepaalde keuzes maakte en hoe ik een bug opspoor. AI is een handig hulpmiddel om sneller te leren en te werken, geen vervanging voor mijn eigen hersenen.",
 
     // Mijn cv
     "cv.titel": "Mijn cv",
@@ -162,8 +124,7 @@ const TAAL_NL = {
     "skills.label": "Tech stack",
     "skills.kop": "Tools waarmee ik bouw",
     "skills.ondertitel": "Van frontend tot AI-automatisering",
-    "skills.lead": "De talen, frameworks en tools waarmee ik werk in mijn opleiding en in mijn eigen "
-        + "projecten, en de manier waarop ik dat werk plan en organiseer.",
+    "skills.lead": "De talen, frameworks en tools waarmee ik bouw in mijn opleiding en in mijn eigen projecten. En de manier waarop ik dat werk georganiseerd houd, zodat de chaos beperkt blijft tot mijn browsertabbladen.",
     "cv.talen": "Talenkennis",
     "cv.nederlands": "Nederlands",
     "cv.moedertaal": "Moedertaal",
@@ -182,14 +143,10 @@ const TAAL_NL = {
 
     // Mijn vaardigheden
     "skills.titel": "Mijn vaardigheden",
-    "skills.monday": "<strong>Monday</strong> — hierin plan ik mijn taken, volg ik op hoever een project "
-        + "staat en stem ik het werk af wanneer we in team werken.",
-    "skills.scrum": "<strong>Scrum</strong> — in de lessen werk ik in sprints: we schatten taken in met "
-        + "planning poker, volgen ze op een kanbanbord in Trello en bespreken na elke sprint wat beter kan.",
-    "skills.rest": "<strong>REST API</strong> — met JavaScript vraag ik gegevens op via HTTP-verzoeken en "
-        + "toon ik het antwoord van de API op mijn pagina.",
-    "skills.mcp": "<strong>MCP</strong> — hiermee koppel ik AI-assistenten aan mijn eigen tools, zoals "
-        + "GitHub en Google Drive, zodat ze rechtstreeks met mijn bestanden en gegevens kunnen werken.",
+    "skills.monday": "<strong>Monday</strong> — hier plan ik mijn taken, volg ik op hoever een project staat en stem ik het werk af als we in team bouwen. Minder post-its, meer overzicht.",
+    "skills.scrum": "<strong>Scrum</strong> — in de lessen werken we in sprints: we schatten in met planning poker, volgen taken op een Kanbanbord in Trello en blikken terug na elke sprint. Spoiler: de inschatting is altijd een tikje optimistisch.",
+    "skills.rest": "<strong>REST API</strong> — met JavaScript haal ik gegevens op via HTTP-verzoeken en toon ik het antwoord op mijn pagina. 200 OK is mijn favoriete getal.",
+    "skills.mcp": "<strong>MCP</strong> — hiermee koppel ik AI-assistenten aan mijn eigen tools, zoals GitHub en Google Drive, zodat ze rechtstreeks met mijn bestanden en data kunnen werken. Alsof ik mijn assistent een sleutel geef, maar alleen voor de juiste kamers.",
 
     // Mijn projecten
     "projects.titel": "Mijn projecten",
@@ -261,8 +218,7 @@ const TAAL_NL = {
 
     // Contact en footer
     "contact.titel": "Neem contact op",
-    "contact.intro": "Een vraag over een project of over mijn code op GitHub? Stuur me gerust een "
-        + "bericht of bel even, ik hoor graag van je.",
+    "contact.intro": "Een vraag over een project, een idee voor een website of benieuwd naar mijn code op GitHub? Stuur me een bericht of bel me even. Ik hoor graag van je, en ik beloof: mijn inbox heeft minder bugs dan mijn eerste projecten.",
     "form.naam": "Naam",
     "form.bedrijf": "Bedrijfsnaam",
     "form.email": "E-mailadres",
@@ -271,8 +227,8 @@ const TAAL_NL = {
     "form.berichtPlaceholder": "Laat hier je boodschap achter",
     "form.bezig": "Bezig met versturen…",
     "form.verstuur": "Verstuur bericht",
-    "form.gelukt": "Bedankt! Je bericht is verstuurd, ik antwoord zo snel mogelijk.",
-    "form.mislukt": "Versturen lukte niet. Probeer het opnieuw of bel me even.",
+    "form.gelukt": "Bericht afgeleverd! Bedankt om contact op te nemen, ik antwoord zo snel mogelijk.",
+    "form.mislukt": "Oeps, je bericht is ergens tussen hier en mijn inbox verdwaald. Probeer het opnieuw of bel me even.",
     "form.verplicht": "Vul dit veld in.",
     "form.ongeldigEmail": "Vul een geldig e-mailadres in.",
     "footer.kaartTitel": "Balen op Google Maps",
