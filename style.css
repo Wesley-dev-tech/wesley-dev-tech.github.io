@@ -846,11 +846,44 @@ h3 {
 }
 
 /* Kop van de tekstkaart: icoon, label, titel en ondertitel naast elkaar */
+/* Label bovenaan; daaronder het icoonvak naast titel en ondertitel. Het vak loopt van de
+   bovenkant van de titel tot de onderkant van de ondertitel, ook als de titel over twee
+   regels loopt. De tekstkolom zelf valt weg (display: contents), zodat label, titel en
+   ondertitel elk een eigen rij in het raster krijgen. */
 .card-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 20px;
     margin-bottom: 24px;
+}
+
+.card-header > div:not(.card-icon) {
+    display: contents;
+}
+
+.card-header .card-label {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.card-header h3 {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.card-header .card-subtitle {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+/* Het vak begint ter hoogte van de letters van de titel en eindigt onderaan de letters van
+   de ondertitel; de marges vangen de witruimte van de regelhoogte op */
+.card-header .card-icon {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    align-self: stretch;
+    height: auto;
+    margin: 8px 0 4px;
 }
 
 /* Icoonvak, gedeeld door de tekstkaarten en projecten */
