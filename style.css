@@ -876,14 +876,18 @@ h3 {
     grid-row: 3;
 }
 
-/* Het vak begint ter hoogte van de letters van de titel en eindigt onderaan de letters van
-   de ondertitel; de marges vangen de witruimte van de regelhoogte op */
+/* Het vak is altijd vierkant. Het begint ter hoogte van de letters van de titel en is precies
+   zo hoog als één regel titel plus één regel ondertitel: 1.2 x de titelgrootte (regelhoogte),
+   plus 1.65rem (regelhoogte ondertitel), min de witruimte boven en onder de letters.
+   Loopt de titel op gsm over twee regels, dan blijft het vak vierkant en bovenaan staan. */
 .card-header .card-icon {
+    --kop-icoon: calc(1.2 * var(--card-title-size) + 1.65rem - 6px);
     grid-column: 1;
     grid-row: 2 / 4;
-    align-self: stretch;
-    height: auto;
-    margin: 8px 0 4px;
+    align-self: start;
+    width: var(--kop-icoon);
+    height: var(--kop-icoon);
+    margin-top: 8px;
 }
 
 /* Icoonvak, gedeeld door de tekstkaarten en projecten */
@@ -912,9 +916,13 @@ h3 {
     font-weight: 500;
 }
 
+.card-header {
+    --card-title-size: clamp(1.2rem, 1.1rem + .4vw, 1.4rem);
+}
+
 .card-header h3 {
     margin: 4px 0 2px;
-    font-size: clamp(1.2rem, 1.1rem + .4vw, 1.4rem);
+    font-size: var(--card-title-size);
 }
 
 .card-header .card-subtitle {
