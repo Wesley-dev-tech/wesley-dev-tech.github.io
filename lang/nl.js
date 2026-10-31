@@ -1,5 +1,5 @@
 // Nederlandse teksten van de site. Elke sleutel hoort bij een element met data-i18n (of
-// data-i18n-alt, -aria-label, -title, -placeholder, -content, -src) in index.html, of bij een
+// data-i18n-alt, -aria-label, -title, -placeholder, -content, -src, -srcset) in index.html, of bij een
 // tekst die JavaScript zelf maakt (zie en.js). Ontbreekt hier een sleutel, dan blijft het Engels staan.
 const TAAL_NL = {
     // Paginagegevens
@@ -50,6 +50,10 @@ const TAAL_NL = {
     "about.titel": "Over mij",
     "about.posterAlt": "Poster Wesley Dev &amp; Tech: websites, webdesign, webapplicaties, software op maat en AI-automatisering",
     "about.posterOnderschrift": "Wat ik bouw, in één beeld",
+    "about.posterDarkSrc": "images/poster-dark-800.webp",
+    "about.posterDarkSrcset": "images/poster-dark-400.webp 400w, images/poster-dark-800.webp 800w",
+    "about.posterLightSrc": "images/poster-light-800.webp",
+    "about.posterLightSrcset": "images/poster-light-400.webp 400w, images/poster-light-800.webp 800w",
     "about.label": "Mijn achtergrond",
     "about.kop": "Van boekhouding naar IT",
     "about.ondertitel": "Full Stack Developer in opleiding",
@@ -109,6 +113,10 @@ const TAAL_NL = {
     "education.posterAlt": "Poster Full Stack: de lagen van een webapplicatie, van interface, logica en "
         + "API-verbinding tot data en AI-automatisering",
     "education.posterOnderschrift": "Wat ik leer, laag per laag",
+    "education.posterDarkSrc": "images/poster-opleiding-dark-800.webp",
+    "education.posterDarkSrcset": "images/poster-opleiding-dark-400.webp 400w, images/poster-opleiding-dark-800.webp 800w",
+    "education.posterLightSrc": "images/poster-opleiding-light-800.webp",
+    "education.posterLightSrcset": "images/poster-opleiding-light-400.webp 400w, images/poster-opleiding-light-800.webp 800w",
 
     // Mijn cv
     "cv.titel": "Mijn cv",

@@ -63,7 +63,8 @@ function inTaal(waarde) {
 }
 
 // Attributen die een eigen vertaling kunnen hebben, bv. data-i18n-alt="hero.avatarAlt"
-const vertaalbareAttributen = ["alt", "aria-label", "title", "placeholder", "content", "src"];
+// Bij "src" hoort ook "srcset", anders kiest de browser toch de afbeelding uit srcset
+const vertaalbareAttributen = ["alt", "aria-label", "title", "placeholder", "content", "src", "srcset"];
 
 // De Engelse tekst uit index.html per element, de eerste keer bewaard zodat je ook terug kan naar Engels
 const engelseTeksten = new Map();
