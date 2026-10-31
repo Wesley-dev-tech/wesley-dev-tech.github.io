@@ -159,6 +159,11 @@ const TAAL_NL = {
     "cv.profiel": "Profiel",
     "cv.itVaardigheden": "IT-vaardigheden",
     "skills.concepten": "Concepten &amp; methodologieën",
+    "skills.label": "Tech stack",
+    "skills.kop": "Tools waarmee ik bouw",
+    "skills.ondertitel": "Van frontend tot AI-automatisering",
+    "skills.lead": "De talen, frameworks en tools waarmee ik werk in mijn opleiding en in mijn eigen "
+        + "projecten, en de manier waarop ik dat werk plan en organiseer.",
     "cv.talen": "Talenkennis",
     "cv.nederlands": "Nederlands",
     "cv.moedertaal": "Moedertaal",

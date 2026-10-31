@@ -804,6 +804,7 @@ h3 {
 .about-card,
 .education-card,
 .cv-card,
+.skills-card,
 .project-card {
     min-width: 0;
     border: 1px solid var(--border-color);
@@ -815,7 +816,8 @@ h3 {
 /* Over mij, opleiding en cv: dezelfde tekstkaart, over de volle kolom naast de titel */
 .about-card,
 .education-card,
-.cv-card {
+.cv-card,
+.skills-card {
     max-width: none;
     padding: clamp(24px, 4vw, 40px);
 }
@@ -927,6 +929,11 @@ h3 {
         flex-direction: column;
         justify-content: space-between;
     }
+}
+
+/* Tech stack: ingeklapt blijft het kopje Frontend met de eerste rij logo's zichtbaar */
+.skills-card .read-more-inner {
+    min-height: 9em;
 }
 
 /* Ingeklapt blijft het begin van beide kolommen zichtbaar, net zoals bij de andere kaarten */

@@ -844,7 +844,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.querySelectorAll(
             "#about .about-card, #education .education-card, #cv .cv-card, " +
-            "#skills .skill-group, #projects .section-head-row, " +
+            "#skills .skills-card, #projects .section-head-row, " +
             "#project-list > *, .footer-grid > :not(.footer-details)"
         ).forEach(function (element) {
             element.classList.add("scroll-reveal");
