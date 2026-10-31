@@ -27,7 +27,7 @@ const TAAL_NL = {
     "groet.middag": "Goeiemiddag, ik ben",
     "groet.avond": "Goeienavond, ik ben",
     "groet.nacht": "Nog wakker? Ik ben",
-    "hero.intro": "Ex-boekhouder, nu full stack developer in opleiding. Ik ruilde spreadsheets in voor broncode en hield mijn oog voor detail. Hieronder vind je wat ik bouwde tijdens mijn opleiding, van mijn allereerste Flexbox-pagina tot een prijscalculator die een offerte als pdf uitrolt. Een idee voor een website of een vraag over mijn code? Stuur me een bericht, ik antwoord sneller dan mijn eerste builds draaiden.",
+    "hero.intro": "Vroeger hield ik de boeken in balans, nu mijn haakjes. Ik ruilde Excel in voor VS Code, en tot nu toe vroeg niemand me een btw-aangifte in JavaScript. Hieronder vind je wat ik bouwde tijdens mijn opleiding, van mijn allereerste Flexbox-pagina (ja, die div staat eindelijk in het midden) tot een prijscalculator die een offerte als pdf uitspuugt. Een idee voor een website of een bug gespot? Stuur me een bericht. Complimenten compileren ook.",
     "hero.projecten": "Bekijk mijn projecten",
     "hero.contact": "Neem contact op",
     "hero.opleiding": "Opleiding",
