@@ -718,6 +718,18 @@ h3 {
     margin-top: 18px;
 }
 
+/* Codefragment in de intro, als een regel uit een terminal: monospace in de koperkleur */
+.hero-code {
+    padding: .1em .45em;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-secondary);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: .88em;
+    white-space: nowrap;
+}
+
 /* Alinea met een koperen icoontje ervoor, zoals op mijn GitHub-profiel. Het icoon schaalt mee
    met de lettergrootte (ook bij de grotere intro) en de tekst loopt netjes in een eigen kolom. */
 .has-icon {

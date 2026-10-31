@@ -27,7 +27,7 @@ const TAAL_NL = {
     "groet.middag": "Goeiemiddag, ik ben",
     "groet.avond": "Goeienavond, ik ben",
     "groet.nacht": "Nog wakker? Ik ben",
-    "hero.intro": "console.log(\"carrièreswitch\") → Boekhouder.exe reageert niet meer. Developer.exe wordt gestart… Na jaren debet en credit is het nu debuggen en committen. Scroll naar beneden voor mijn projecten, van een pagina die eindelijk een div centreert tot een calculator die offertes als pdf afdrukt. Een bug gevonden? Dat is een feature. Een idee? Stuur me een bericht.",
+    "hero.intro": "<code class=\"hero-code\">console.log(\"carrièreswitch\")</code> → Boekhouder.exe reageert niet meer. Developer.exe wordt gestart… Na jaren debet en credit is het nu debuggen en committen. Scroll naar beneden voor mijn projecten, van een pagina die eindelijk een div centreert tot een calculator die offertes als pdf afdrukt. Een bug gevonden? Dat is een feature. Een idee? Stuur me een bericht.",
     "hero.projecten": "Bekijk mijn projecten",
     "hero.contact": "Neem contact op",
     "hero.opleiding": "Opleiding",
