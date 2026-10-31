@@ -730,8 +730,9 @@ h3 {
     white-space: nowrap;
 }
 
-/* Alinea met een koperen icoontje ervoor, zoals op mijn GitHub-profiel. Het icoon schaalt mee
-   met de lettergrootte (ook bij de grotere intro) en de tekst loopt netjes in een eigen kolom. */
+/* De openingszin van elke sectie krijgt een koperen icoontje, zoals op mijn GitHub-profiel; de
+   gewone alinea's niet, zodat het rustig blijft. Het icoon is even groot als de tekst ernaast,
+   staat op de eerste regel en de tekst loopt netjes in een eigen kolom. */
 .has-icon {
     display: flex;
     align-items: baseline;
@@ -739,10 +740,20 @@ h3 {
 }
 
 .text-icon {
-    flex: 0 0 1.15em;
+    flex: 0 0 1.25em;
     color: var(--accent);
-    font-size: .9em;
+    font-size: 1em;
     text-align: center;
+}
+
+/* In de kaarten volgt de openingszin de kop erboven: het icoon staat gecentreerd onder het
+   icoonvak (52px breed) en de tekst begint op dezelfde lijn als de titel (20px ernaast) */
+.lead-text.has-icon {
+    gap: 20px;
+}
+
+.lead-text .text-icon {
+    flex-basis: 52px;
 }
 
 /* Lees meer: de rest van de tekst klapt vloeiend open via de rijhoogte.
@@ -2314,6 +2325,11 @@ html.modal-is-open {
 }
 
 @media print {
+    /* Op papier geen icoontje voor de openingszin van het cv */
+    .text-icon {
+        display: none;
+    }
+
     /* Achtergrondkleuren meedrukken; browsers laten die anders weg om inkt te sparen */
     html {
         print-color-adjust: exact;

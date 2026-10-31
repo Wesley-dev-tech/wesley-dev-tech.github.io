@@ -37,21 +37,21 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
 
-    <link rel="stylesheet" href="style.css?v=138">
-    <link rel="icon" href="favicon.ico?v=138" sizes="16x16 32x32 48x48">
+    <link rel="stylesheet" href="style.css?v=139">
+    <link rel="icon" href="favicon.ico?v=139" sizes="16x16 32x32 48x48">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <!-- De teksten per taal, en daarna script.js. Allebei in de head, zodat het thema en de taal al
          staan voor de pagina getekend wordt. De rest van script.js wacht zelf tot de HTML geladen is. -->
-    <script src="lang/en.js?v=138"></script>
-    <script src="lang/nl.js?v=138"></script>
-    <script src="script.js?v=138"></script>
+    <script src="lang/en.js?v=139"></script>
+    <script src="lang/nl.js?v=139"></script>
+    <script src="script.js?v=139"></script>
 
     <!-- jsPDF en mijn eigen script dat er de cv-pdf mee tekent; defer laadt ze zonder de pagina op te houden -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
         integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous"
         defer></script>
-    <script src="cv-pdf.js?v=138" defer></script>
+    <script src="cv-pdf.js?v=139" defer></script>
 </head>
 
 <body>
@@ -257,13 +257,13 @@
                             <!-- Ingeklapt tot de bezoeker op "Lees meer" klikt (zie script.js) -->
                             <div class="read-more" id="about-more">
                                 <div class="read-more-inner">
-                                    <p class="has-icon"><i class="fa-solid fa-magnifying-glass text-icon" aria-hidden="true"></i><span data-i18n="about.p1">My curiosity about IT grew year after year. Just using websites and apps was no longer enough; I wanted to know what happens behind the button. In the end curiosity won and I retrained as a developer. No regrets, just a lot more browser tabs.</span></p>
+                                    <p data-i18n="about.p1">My curiosity about IT grew year after year. Just using websites and apps was no longer enough; I wanted to know what happens behind the button. In the end curiosity won and I retrained as a developer. No regrets, just a lot more browser tabs.</p>
 
-                                    <p class="has-icon"><i class="fa-solid fa-bug text-icon" aria-hidden="true"></i><span data-i18n="about.p2">What I enjoy most is finding solutions. Code rarely works the first time, and honestly, that's the fun part. I figure out where it breaks, test a few ideas and keep adjusting until the bug gives up. My accounting years help here: logical thinking and an eye for detail work just as well in code.</span></p>
+                                    <p data-i18n="about.p2">What I enjoy most is finding solutions. Code rarely works the first time, and honestly, that's the fun part. I figure out where it breaks, test a few ideas and keep adjusting until the bug gives up. My accounting years help here: logical thinking and an eye for detail work just as well in code.</p>
 
-                                    <p class="has-icon"><i class="fa-solid fa-stairs text-icon" aria-hidden="true"></i><span data-i18n="about.p3">I know that learning to program takes time and perseverance. So I practise a lot, take feedback on board and learn from my mistakes. Every mistake teaches me something, and Git remembers them all anyway.</span></p>
+                                    <p data-i18n="about.p3">I know that learning to program takes time and perseverance. So I practise a lot, take feedback on board and learn from my mistakes. Every mistake teaches me something, and Git remembers them all anyway.</p>
 
-                                    <p class="has-icon"><i class="fa-solid fa-puzzle-piece text-icon" aria-hidden="true"></i><span data-i18n="about.p4">My goal: combine my work experience with my new technical skills to build applications that don't just work, but are practical and pleasant to use. Code that works is good. Code that people enjoy using is better.</span></p>
+                                    <p data-i18n="about.p4">My goal: combine my work experience with my new technical skills to build applications that don't just work, but are practical and pleasant to use. Code that works is good. Code that people enjoy using is better.</p>
                                 </div>
                             </div>
 
@@ -301,21 +301,21 @@
                                 </div>
                             </div>
 
-                            <p class="has-icon lead-text"><i class="fa-solid fa-graduation-cap text-icon" aria-hidden="true"></i><span data-i18n="education.lead">I'm following the full-time day course Full Stack &amp; AI Automation Developer at SyntraPXL. Step by step I'm learning to build websites and applications myself, one commit at a time.</span></p>
+                            <p class="has-icon lead-text"><i class="fa-solid fa-laptop-code text-icon" aria-hidden="true"></i><span data-i18n="education.lead">I'm following the full-time day course Full Stack &amp; AI Automation Developer at SyntraPXL. Step by step I'm learning to build websites and applications myself, one commit at a time.</span></p>
 
                             <div class="read-more" id="education-more">
                                 <div class="read-more-inner">
-                                    <p class="has-icon"><i class="fa-solid fa-code text-icon" aria-hidden="true"></i><span data-i18n="education.p1">We started with HTML and CSS, the foundation of every page. Then came Flexbox and responsive design, so a site looks good on a phone, a tablet and that one ultra-wide monitor. After that, Bootstrap and Tailwind: with Bootstrap Grid I build pages from rows and columns, with Tailwind I style straight from my classes.</span></p>
+                                    <p data-i18n="education.p1">We started with HTML and CSS, the foundation of every page. Then came Flexbox and responsive design, so a site looks good on a phone, a tablet and that one ultra-wide monitor. After that, Bootstrap and Tailwind: with Bootstrap Grid I build pages from rows and columns, with Tailwind I style straight from my classes.</p>
 
-                                    <p class="has-icon"><i class="fa-solid fa-palette text-icon" aria-hidden="true"></i><span data-i18n="education.p2">The look of a site got plenty of attention too: Google Fonts for typefaces, Font Awesome for icons and Coolors.co for colour palettes that actually go together. With that toolkit I've built several projects since, including the portfolio you're scrolling through right now.</span></p>
+                                    <p data-i18n="education.p2">The look of a site got plenty of attention too: Google Fonts for typefaces, Font Awesome for icons and Coolors.co for colour palettes that actually go together. With that toolkit I've built several projects since, including the portfolio you're scrolling through right now.</p>
 
-                                    <p class="has-icon"><i class="fa-solid fa-database text-icon" aria-hidden="true"></i><span data-i18n="education.p3">Next up: relational databases. In MySQL I practised building tables, normalising data and writing SQL queries, until JOIN no longer sounded like a threat. Right now we're working on JavaScript and APIs, so my code is starting to talk to the outside world.</span></p>
+                                    <p data-i18n="education.p3">Next up: relational databases. In MySQL I practised building tables, normalising data and writing SQL queries, until JOIN no longer sounded like a threat. Right now we're working on JavaScript and APIs, so my code is starting to talk to the outside world.</p>
 
-                                    <p class="has-icon"><i class="fa-solid fa-people-group text-icon" aria-hidden="true"></i><span data-i18n="education.p4">The course also introduced me to Agile and Scrum: sprint planning, planning poker and a Kanban board in Trello. It showed me how developers plan and build together as a team, and that estimating is often harder than coding.</span></p>
+                                    <p data-i18n="education.p4">The course also introduced me to Agile and Scrum: sprint planning, planning poker and a Kanban board in Trello. It showed me how developers plan and build together as a team, and that estimating is often harder than coding.</p>
 
-                                    <p class="has-icon"><i class="fa-solid fa-flag-checkered text-icon" aria-hidden="true"></i><span data-i18n="education.p5">My goal is to build complete web applications on my own, from front end to back end. I want to go deeper into JavaScript and TypeScript, work with APIs and discover how AI can automate processes. Full stack, no shortcuts.</span></p>
+                                    <p data-i18n="education.p5">My goal is to build complete web applications on my own, from front end to back end. I want to go deeper into JavaScript and TypeScript, work with APIs and discover how AI can automate processes. Full stack, no shortcuts.</p>
 
-                                    <p class="has-icon"><i class="fa-solid fa-brain text-icon" aria-hidden="true"></i><span data-i18n="education.p6">Just as important: I want to understand the code I write. I don't want AI agents generating code I can't explain. I want to know how it works, why I made certain choices and how to hunt down a bug. AI is a handy tool for learning and working faster, not a replacement for my own brain.</span></p>
+                                    <p data-i18n="education.p6">Just as important: I want to understand the code I write. I don't want AI agents generating code I can't explain. I want to know how it works, why I made certain choices and how to hunt down a bug. AI is a handy tool for learning and working faster, not a replacement for my own brain.</p>
                                 </div>
                             </div>
 
@@ -370,10 +370,7 @@
                         </div>
                     </div>
 
-                    <p class="lead-text" data-i18n="cv.lead">
-                        Analytical, eager-to-learn Full Stack &amp; AI Automation Developer student
-                        with a strong professional background in administration and finance.
-                    </p>
+                    <p class="has-icon lead-text"><i class="fa-solid fa-chart-line text-icon" aria-hidden="true"></i><span data-i18n="cv.lead">Analytical, eager-to-learn Full Stack &amp; AI Automation Developer student with a strong professional background in administration and finance.</span></p>
 
                     <!-- Ingeklapt tot de bezoeker op "Lees meer" klikt (zie script.js). De kolommen
                          staan in een raster, zodat ze bovenaan en onderaan gelijk lopen. -->
