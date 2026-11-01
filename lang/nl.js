@@ -97,7 +97,7 @@ const TAAL_NL = {
     "cv.werk3.taak2": "Verantwoordelijke crediteurenbeheer",
     "cv.werk3.taak3": "Klaarzetten van betalingen in SEPA-betaallijsten",
     "cv.werk4.datum": "<time datetime=\"2021-08\">Augustus 2021</time> - <time datetime=\"2021-10\">oktober 2021</time>",
-    "cv.werk4.functie": "Junior dossierbeheerder",
+    "cv.werk4.functie": "Junior Accountant",
     "cv.werk4.taak1": "Verwerken van facturen en bankverrichtingen",
     "cv.werk4.taak2": "Verwerken van CODA-bestanden",
     "cv.werk4.taak3": "Verwerken van kas- en dagontvangsten",
