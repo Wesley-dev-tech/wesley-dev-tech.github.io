@@ -378,7 +378,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Projecten, van oud naar nieuw. Een nieuw project zet je gewoon onderaan de lijst,
     // met een korte teaser voor de kaart en een screenshot in images/ voor het detailvenster.
     // Heeft een project ook een lichte versie, zet die dan in afbeeldingLicht (en demoLicht).
-    // Teksten in twee talen schrijf je als { en: "...", nl: "..." }; een naam die in beide
+    // Teksten in twee talen schrijf je als { en: "...", nl: "..." }, ook een screenshot per taal
+    // (afbeelding en afbeeldingLicht); een naam die in beide
     // talen gelijk is (zoals "Polestar 6"), mag gewoon tekst blijven.
     const projecten = [
         {
@@ -502,8 +503,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     + "is eigenlijk ook een project. Werkt op mijn smartphone en desktop, en hopelijk ook op de jouwe."
             },
             tags: ["HTML", "CSS", "JavaScript", "Flexbox", "Bootstrap"],
-            afbeelding: "images/portfolio-dark.webp",
-            afbeeldingLicht: "images/portfolio-light.webp",
+            afbeelding: { en: "images/portfolio-dark-en.webp", nl: "images/portfolio-dark-nl.webp" },
+            afbeeldingLicht: { en: "images/portfolio-light-en.webp", nl: "images/portfolio-light-nl.webp" },
             code: "https://github.com/Wesley-dev-tech/Portfolio"
         },
         {
@@ -790,7 +791,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return lichtThema && licht ? licht : donker;
         }
 
-        projectModalAfbeelding.src = inThema(project.afbeelding, project.afbeeldingLicht);
+        projectModalAfbeelding.src = inThema(inTaal(project.afbeelding), inTaal(project.afbeeldingLicht));
         projectModalAfbeelding.alt = t("project.screenshot") + inTaal(project.titel);
         vulTags(projectModal, project);
 
