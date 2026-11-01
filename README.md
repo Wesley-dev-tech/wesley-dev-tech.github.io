@@ -4,7 +4,7 @@ My personal developer portfolio showcasing my education, skills and projects. Bu
 
 The portfolio content describes my background, coursework and current skills.
 
-**Live:** [wesley-dev-tech.github.io/Portfolio](https://wesley-dev-tech.github.io/Portfolio/)
+**Live:** [wesley-dev-tech.github.io](https://wesley-dev-tech.github.io/)
 
 ## Design
 
