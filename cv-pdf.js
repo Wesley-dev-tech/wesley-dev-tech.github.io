@@ -473,9 +473,21 @@ function tekenCv(pdf, cv, k, s, teken, boven) {
     const kopHoogte = Math.max(monogram, cv.contact.length * contactRegel);
     const naamHoogte = regelHoogte(22 * s) * 0.85 + 1 * s + regelHoogte(8.5 * s);
 
-    vlak(MARGE, y + (kopHoogte - monogram) / 2, monogram, monogram, 2, k.pagina, k.randSterk);
+    // Zelfde monogram als in de header van de site: koperen rand en een koperen streep onder WB.
+    // Letters en streep samen verticaal gecentreerd in het vakje.
+    vlak(MARGE, y + (kopHoogte - monogram) / 2, monogram, monogram, 2, k.pagina, k.accent);
     letter("courier", "bold", 13, k.tekst);
-    schrijf("WB", MARGE + monogram / 2, y + kopHoogte / 2, { align: "center", baseline: "middle" });
+
+    const monogramMidden = MARGE + monogram / 2;
+    const hoofdletter = 13 * s * PT * 0.57;
+    const streepRuimte = 1.2 * s;
+    const streepDikte = 0.6 * s;
+    const basislijn = y + kopHoogte / 2 - (hoofdletter + streepRuimte + streepDikte) / 2 + hoofdletter;
+    const letterBreedte = pdf.getTextWidth("WB");
+    const streepY = basislijn + streepRuimte + streepDikte / 2;
+
+    schrijf("WB", monogramMidden, basislijn, { align: "center", baseline: "alphabetic" });
+    lijn(monogramMidden - letterBreedte / 2, streepY, monogramMidden + letterBreedte / 2, streepY, k.accent, streepDikte);
 
     const naamX = MARGE + monogram + 4 * s;
     const naamY = y + (kopHoogte - naamHoogte) / 2;
