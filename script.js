@@ -778,8 +778,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const projectModal = document.querySelector("#project-modal");
     const projectModalAfbeelding = projectModal.querySelector(".project-modal-image");
 
-    function openProjectModal(kaart) {
+    const vorigProjectKnop = projectModal.querySelector(".project-modal-prev");
+    const volgendProjectKnop = projectModal.querySelector(".project-modal-next");
+    let huidigeProjectkaart = null;
+
+    // De screenshot vloeit zacht in zodra hij geladen is, in plaats van plots te verschijnen
+    // (style.css; zonder animatie bij "minder beweging")
+    function toonScreenshot() {
+        projectModalAfbeelding.classList.add("is-geladen");
+    }
+
+    projectModalAfbeelding.addEventListener("load", toonScreenshot);
+    projectModalAfbeelding.addEventListener("error", toonScreenshot);
+
+    // Vult het detailvenster met één project; gebruikt bij openen en bij vorige/volgende
+    function vulProjectModal(kaart) {
         const project = projecten[Number(kaart.dataset.order)];
+        huidigeProjectkaart = kaart;
 
         projectModal.querySelector(".project-icon i").className = "fa-solid " + project.icoon;
         projectModal.querySelector("#project-modal-title").textContent = inTaal(project.titel);
@@ -791,7 +806,18 @@ document.addEventListener("DOMContentLoaded", function () {
             return lichtThema && licht ? licht : donker;
         }
 
-        projectModalAfbeelding.src = inThema(inTaal(project.afbeelding), inTaal(project.afbeeldingLicht));
+        const nieuweScreenshot = new URL(inThema(inTaal(project.afbeelding), inTaal(project.afbeeldingLicht)),
+            document.baseURI).href;
+
+        if (projectModalAfbeelding.src !== nieuweScreenshot) {
+            projectModalAfbeelding.classList.remove("is-geladen");
+            projectModalAfbeelding.src = nieuweScreenshot;
+
+            // Al in de cache: dan meteen tonen (load komt dan soms niet meer)
+            if (projectModalAfbeelding.complete && projectModalAfbeelding.naturalWidth > 0) {
+                requestAnimationFrame(toonScreenshot);
+            }
+        }
         projectModalAfbeelding.alt = t("project.screenshot") + inTaal(project.titel);
         vulTags(projectModal, project);
 
@@ -817,8 +843,87 @@ document.addEventListener("DOMContentLoaded", function () {
             beoordeling.querySelector("blockquote").textContent = inTaal(project.feedback);
         }
 
+        // Pijltjes: in de volgorde van de kaarten (dus ook na sorteren), niet rond aan de uiteinden
+        const plaats = projectKaarten.indexOf(kaart);
+        vorigProjectKnop.disabled = plaats <= 0;
+        volgendProjectKnop.disabled = plaats >= projectKaarten.length - 1;
+    }
+
+    function openProjectModal(kaart) {
+        vulProjectModal(kaart);
         openVenster(projectModal, kaart.querySelector(".project-open"));
     }
+
+    // Naar het vorige (-1) of volgende (+1) project zonder het venster te sluiten
+    function toonAnderProject(stap) {
+        const kaart = projectKaarten[projectKaarten.indexOf(huidigeProjectkaart) + stap];
+
+        if (!kaart || !projectModal.open) {
+            return;
+        }
+
+        vulProjectModal(kaart);
+        projectModal.scrollTop = 0;
+
+        // Na het sluiten komt de focus op de kaart van het laatst bekeken project. Die moet dan
+        // zichtbaar zijn: op desktop de juiste pagina tonen, op mobiel de carrousel verschuiven.
+        vensterOpener = kaart.querySelector(".project-open");
+
+        if (mobieleWeergave.matches) {
+            kaart.scrollIntoView({ block: "nearest", inline: "center" });
+        } else {
+            toonProjectpagina(Math.floor(projectKaarten.indexOf(kaart) / kaartenPerPagina) + 1);
+        }
+
+        // Werd de knop die de focus had uitgeschakeld (eerste of laatste project), focus dan het venster
+        if (document.activeElement && document.activeElement.disabled) {
+            projectModal.focus();
+        }
+    }
+
+    vorigProjectKnop.addEventListener("click", function () {
+        toonAnderProject(-1);
+    });
+
+    volgendProjectKnop.addEventListener("click", function () {
+        toonAnderProject(1);
+    });
+
+    // Pijltjestoetsen, behalve met een sneltoets erbij (bv. Alt + pijl is "terug" in de browser)
+    projectModal.addEventListener("keydown", function (gebeurtenis) {
+        if (gebeurtenis.altKey || gebeurtenis.ctrlKey || gebeurtenis.metaKey || gebeurtenis.shiftKey) {
+            return;
+        }
+
+        if (gebeurtenis.key === "ArrowLeft" || gebeurtenis.key === "ArrowRight") {
+            gebeurtenis.preventDefault();
+            toonAnderProject(gebeurtenis.key === "ArrowLeft" ? -1 : 1);
+        }
+    });
+
+    // Vegen op touchscreens: duidelijk horizontaal en minstens 60px, zodat gewoon scrollen
+    // in het venster nooit per ongeluk van project wisselt
+    let vegenStart = null;
+
+    projectModal.addEventListener("touchstart", function (gebeurtenis) {
+        const aanraking = gebeurtenis.changedTouches[0];
+        vegenStart = { x: aanraking.clientX, y: aanraking.clientY };
+    }, { passive: true });
+
+    projectModal.addEventListener("touchend", function (gebeurtenis) {
+        if (!vegenStart) {
+            return;
+        }
+
+        const aanraking = gebeurtenis.changedTouches[0];
+        const dx = aanraking.clientX - vegenStart.x;
+        const dy = aanraking.clientY - vegenStart.y;
+        vegenStart = null;
+
+        if (Math.abs(dx) >= 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+            toonAnderProject(dx > 0 ? -1 : 1);
+        }
+    }, { passive: true });
 
     // De hele kaart is klikbaar; de titelknop zorgt voor de toetsenbordbediening
     projectLijst.addEventListener("click", function (event) {
@@ -967,20 +1072,94 @@ document.addEventListener("DOMContentLoaded", function () {
         contactStatus.textContent = contactStatusSleutel ? t(contactStatusSleutel) : "";
     });
 
-    // Eigen foutmeldingen bij lege of foute velden, in de taal van de pagina in plaats van
-    // die van de browser. Bij het typen weer wissen, anders blijft het veld ongeldig.
-    contactFormulier.querySelectorAll("[required]").forEach(function (veld) {
-        veld.addEventListener("invalid", function () {
-            veld.setCustomValidity(veld.validity.typeMismatch ? t("form.ongeldigEmail") : t("form.verplicht"));
+    // Eigen foutmeldingen onder het veld, in de taal van de pagina. JavaScript neemt de controle
+    // over (noValidate); zonder JavaScript blijven de gewone meldingen van de browser werken.
+    contactFormulier.noValidate = true;
+    const verplichteVelden = Array.from(contactFormulier.querySelectorAll("[required]"));
+
+    // Sleutel van de melding voor een veld, of "" als het in orde is.
+    // Alleen spaties telt ook als leeg.
+    function foutVoor(veld) {
+        if (veld.value.trim() === "") {
+            return "form.verplicht";
+        }
+
+        if (veld.validity.typeMismatch) {
+            return "form.ongeldigEmail";
+        }
+
+        return veld.validity.valid ? "" : "form.verplicht";
+    }
+
+    function toonVeldfout(veld, sleutel) {
+        const melding = document.getElementById(veld.id + "-fout");
+
+        melding.dataset.sleutel = sleutel;
+        melding.textContent = sleutel ? t(sleutel) : "";
+        melding.hidden = !sleutel;
+
+        if (sleutel) {
+            veld.setAttribute("aria-invalid", "true");
+        } else {
+            veld.removeAttribute("aria-invalid");
+        }
+    }
+
+    verplichteVelden.forEach(function (veld) {
+        // Pas controleren als de bezoeker het veld verlaat, en alleen als er al iets in stond:
+        // wie met Tab door een leeg formulier gaat, krijgt nog geen rij meldingen
+        veld.addEventListener("input", function () {
+            veld.dataset.aangeraakt = "ja";
+
+            // Staat er al een melding, dan verdwijnt ze zodra het veld in orde is
+            if (veld.hasAttribute("aria-invalid")) {
+                toonVeldfout(veld, foutVoor(veld));
+            }
         });
 
-        veld.addEventListener("input", function () {
-            veld.setCustomValidity("");
+        veld.addEventListener("blur", function () {
+            if (veld.dataset.aangeraakt) {
+                toonVeldfout(veld, foutVoor(veld));
+            }
+        });
+    });
+
+    // Tekenteller bij het bericht, altijd zichtbaar; koper vlak voor de limiet
+    const tellerGetal = contactFormulier.querySelector(".contact-counter-getal");
+    const teller = tellerGetal.parentElement;
+
+    function werkTellerBij() {
+        tellerGetal.textContent = berichtVeld.value.length;
+        teller.classList.toggle("is-bijna", berichtVeld.value.length >= berichtVeld.maxLength * .9);
+    }
+
+    berichtVeld.addEventListener("input", werkTellerBij);
+    werkTellerBij();
+
+    bijTaalwissel.push(function () {
+        verplichteVelden.forEach(function (veld) {
+            const melding = document.getElementById(veld.id + "-fout");
+
+            if (melding.dataset.sleutel) {
+                melding.textContent = t(melding.dataset.sleutel);
+            }
         });
     });
 
     contactFormulier.addEventListener("submit", async function (gebeurtenis) {
         gebeurtenis.preventDefault();
+
+        // Eerst alle velden controleren; bij een fout de meldingen tonen en naar het eerste veld gaan
+        const foutVelden = verplichteVelden.filter(function (veld) {
+            const sleutel = foutVoor(veld);
+            toonVeldfout(veld, sleutel);
+            return sleutel !== "";
+        });
+
+        if (foutVelden.length > 0) {
+            foutVelden[0].focus();
+            return;
+        }
 
         const verstuurKnop = contactFormulier.querySelector('button[type="submit"]');
 
@@ -1011,6 +1190,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             contactFormulier.reset();
             pasBerichtHoogteAan();
+            werkTellerBij();
+            verplichteVelden.forEach(function (veld) {
+                delete veld.dataset.aangeraakt;
+            });
             toonContactStatus("form.gelukt", true);
         } catch (fout) {
             toonContactStatus("form.mislukt", false);

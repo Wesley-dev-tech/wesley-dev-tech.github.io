@@ -1710,6 +1710,57 @@ html.modal-is-open {
     font-size: 1.3rem;
 }
 
+/* Titel tussen de pijltjes naar het vorige en volgende project. De pijltjes zijn rustiger
+   dan de sluitknop (dunne rand, geen vulling), zodat ze de titel niet overheersen. */
+.project-modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: var(--modal-content-width);
+    margin-bottom: 24px;
+}
+
+.project-modal-head h2 {
+    flex: 1;
+    margin: 0;
+}
+
+.project-modal-nav {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    background: none;
+    color: var(--text-muted);
+    font-size: .9rem;
+    transition: color .2s ease, border-color .2s ease;
+}
+
+.project-modal-nav:active:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Aan het begin of einde van de lijst: zichtbaar maar uit, zodat de titel niet verschuift */
+.project-modal-nav:disabled {
+    opacity: .3;
+    cursor: default;
+}
+
+@media (hover: hover) {
+    .project-modal-nav:hover:not(:disabled) {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+}
+
 /* Bewust kleiner dan het venster, zodat de screenshot de tekst niet overheerst */
 .project-modal-image {
     display: block;
@@ -1722,6 +1773,13 @@ html.modal-is-open {
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
     background: var(--bg-secondary);
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+/* Zacht invloeien zodra de screenshot geladen is (script.js); bij "minder beweging" meteen */
+.project-modal-image.is-geladen {
+    opacity: 1;
 }
 
 .project-modal-description {
@@ -1851,6 +1909,8 @@ html.modal-is-open {
 
 .contact-row {
     display: grid;
+    /* Bovenaan houden: krijgt het veld ernaast een foutmelding, dan blijft dit veld op zijn plaats */
+    align-content: start;
     gap: 6px;
 }
 
@@ -1922,6 +1982,56 @@ html.modal-is-open {
     outline: 2px solid var(--accent);
     outline-offset: 1px;
     border-color: var(--accent);
+}
+
+/* Veld met een fout: koperen rand, en de melding eronder in koper met een uitroepteken.
+   Zo valt de fout op zonder schreeuwerig rood dat niet bij de huisstijl past. */
+.contact-row input[aria-invalid="true"],
+.contact-row textarea[aria-invalid="true"] {
+    border-color: var(--accent);
+}
+
+.contact-error {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin: 0;
+    color: var(--accent);
+    font-size: .85rem;
+}
+
+.contact-error::before {
+    content: "\f06a";
+    font-family: "Font Awesome 6 Free";
+    font-size: .8em;
+    font-weight: 900;
+}
+
+/* Onder het bericht: foutmelding links, teller rechts */
+.contact-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.contact-counter {
+    margin: 0 0 0 auto;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+/* Vlak voor de limiet van 5000 tekens */
+.contact-counter.is-bijna {
+    color: var(--accent);
+}
+
+/* Zonder JavaScript telt niemand mee, dan geen teller */
+:root:not(.js) .contact-counter {
+    display: none;
 }
 
 .contact-form .btn {
