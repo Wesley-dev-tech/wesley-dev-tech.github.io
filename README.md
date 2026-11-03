@@ -98,7 +98,7 @@ HTML, CSS and JavaScript are strictly separated: no inline scripts or styles, no
 - `sitemap.xml`: the sitemap for search engines; update `lastmod` after a bigger change. A `robots.txt` only works at the root of `wesley-dev-tech.github.io`, so there is none in this repo.
 - `google0260c9b0f0763512.html`: verifies ownership of the site in Google Search Console. Keep it, or the access to Search Console is lost.
 - `cv-pdf.js`: draws the CV as a one-page A4 PDF with jsPDF (2.5.1, from cdnjs, the same library as my flooring calculator) and saves it straight to the Downloads folder with `pdf.save()`. It reads the CV text from `index.html` and the colours of the active theme from the CSS variables, so the PDF always matches the CV and the theme without rebuilding anything. If the CV ever grows, it scales everything down until it fits one page. Used by the "Download als pdf" button under the CV.
-- `favicon.ico` and `apple-touch-icon.png`: the site icon (a "WB" monogram in the site colors) at 16, 32, 48 and 180 px.
+- `favicon.ico` (16, 32, 48 px), `favicon-v3-96x96.png`, `favicon-v3-192x192.png` and `apple-touch-icon-v3.png` (180 px): the site icon, the same "WB" monogram as in the header (light letters with a copper underline on the dark background, filling the whole square so a round crop cuts nothing off). Older `-v2` and unversioned copies stay in the repo; give new versions a new file name so Google fetches them again.
 
 The Tailwind product page is a visual demo with sample product information and no purchase or payment functionality. It loads Tailwind through a CDN script.
 

@@ -220,21 +220,25 @@ h3 {
     letter-spacing: -.01em;
 }
 
-/* Monogram in de huisstijl, in plaats van het favicon */
+/* Monogram in de huisstijl, in plaats van het favicon. Even groot als de knoppen rechts in de
+   header (44px, op desktop 40px), met een koperen rand en een koperen streep onder WB,
+   zoals onder de actieve taal. */
 .logo-mark {
     display: inline-flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--border-strong);
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--accent);
     border-radius: var(--radius);
     color: var(--text-color);
     font-family: var(--font-mono);
-    font-size: .75rem;
-    font-weight: 500;
+    font-size: .95rem;
+    font-weight: 600;
     letter-spacing: .02em;
+    text-decoration: underline 2px var(--accent);
+    text-underline-offset: 5px;
 }
 
 .nav-links {
@@ -444,6 +448,12 @@ h3 {
 
     .lang-switch {
         height: 40px;
+    }
+
+    .logo-mark {
+        width: 40px;
+        height: 40px;
+        font-size: .875rem;
     }
 }
 
