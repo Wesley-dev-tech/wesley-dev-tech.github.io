@@ -2017,16 +2017,16 @@ html.modal-is-open {
 
 .contact-counter {
     margin: 0 0 0 auto;
-    color: var(--text-muted);
+    color: var(--accent);
     font-family: var(--font-mono);
     font-size: .75rem;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
 }
 
-/* Vlak voor de limiet van 5000 tekens */
+/* Vlak voor de limiet van 5000 tekens: vet */
 .contact-counter.is-bijna {
-    color: var(--accent);
+    font-weight: 700;
 }
 
 /* Zonder JavaScript telt niemand mee, dan geen teller */

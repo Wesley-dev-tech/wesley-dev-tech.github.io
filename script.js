@@ -1124,7 +1124,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Tekenteller bij het bericht, altijd zichtbaar; koper vlak voor de limiet
+    // Tekenteller bij het bericht, altijd zichtbaar en in koper; vet vlak voor de limiet
     const tellerGetal = contactFormulier.querySelector(".contact-counter-getal");
     const teller = tellerGetal.parentElement;
 
