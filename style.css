@@ -1724,14 +1724,6 @@ html.modal-is-open {
     background: var(--bg-secondary);
 }
 
-/* Staande gsm-screenshot op een gsm: smaller, zodat titel en tekst er nog net onder passen.
-   De hoogte volgt de screenshot zelf (die stopt net onder de twee knoppen). */
-.project-modal-image.is-gsm {
-    width: min(100%, 220px);
-    aspect-ratio: auto;
-    border-radius: 16px;
-}
-
 .project-modal-description {
     max-width: var(--modal-content-width);
     margin: 24px 0;

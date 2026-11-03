@@ -379,8 +379,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // met een korte teaser voor de kaart en een screenshot in images/ voor het detailvenster.
     // Heeft een project ook een lichte versie, zet die dan in afbeeldingLicht (en demoLicht).
     // Teksten in twee talen schrijf je als { en: "...", nl: "..." }, ook een screenshot per taal
-    // (afbeelding en afbeeldingLicht, en eventueel afbeeldingMobiel en afbeeldingMobielLicht voor
-    // een staande gsm-screenshot); een naam die in beide
+    // (afbeelding en afbeeldingLicht); een naam die in beide
     // talen gelijk is (zoals "Polestar 6"), mag gewoon tekst blijven.
     const projecten = [
         {
@@ -506,9 +505,6 @@ document.addEventListener("DOMContentLoaded", function () {
             tags: ["HTML", "CSS", "JavaScript", "Flexbox", "Bootstrap"],
             afbeelding: { en: "images/portfolio-dark-en.webp", nl: "images/portfolio-dark-nl.webp" },
             afbeeldingLicht: { en: "images/portfolio-light-en.webp", nl: "images/portfolio-light-nl.webp" },
-            // Staande gsm-screenshot, getoond als het detailvenster op een gsm geopend wordt
-            afbeeldingMobiel: { en: "images/portfolio-mobile-dark-en.webp", nl: "images/portfolio-mobile-dark-nl.webp" },
-            afbeeldingMobielLicht: { en: "images/portfolio-mobile-light-en.webp", nl: "images/portfolio-mobile-light-nl.webp" },
             code: "https://github.com/Wesley-dev-tech/Portfolio"
         },
         {
@@ -781,7 +777,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Detailvenster van een project
     const projectModal = document.querySelector("#project-modal");
     const projectModalAfbeelding = projectModal.querySelector(".project-modal-image");
-    const gsmScherm = window.matchMedia("(max-width: 575.98px)");
 
     function openProjectModal(kaart) {
         const project = projecten[Number(kaart.dataset.order)];
@@ -796,15 +791,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return lichtThema && licht ? licht : donker;
         }
 
-        // Op een gsm een staande gsm-screenshot, als het project er een heeft
-        const gsmScreenshot = Boolean(project.afbeeldingMobiel) && gsmScherm.matches;
-
-        projectModalAfbeelding.classList.toggle("is-gsm", gsmScreenshot);
-        projectModalAfbeelding.width = gsmScreenshot ? 780 : 1280;
-        projectModalAfbeelding.height = gsmScreenshot ? 1940 : 800;
-        projectModalAfbeelding.src = gsmScreenshot
-            ? inThema(inTaal(project.afbeeldingMobiel), inTaal(project.afbeeldingMobielLicht))
-            : inThema(inTaal(project.afbeelding), inTaal(project.afbeeldingLicht));
+        projectModalAfbeelding.src = inThema(inTaal(project.afbeelding), inTaal(project.afbeeldingLicht));
         projectModalAfbeelding.alt = t("project.screenshot") + inTaal(project.titel);
         vulTags(projectModal, project);
 
