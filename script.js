@@ -801,7 +801,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         projectModalAfbeelding.classList.toggle("is-gsm", gsmScreenshot);
         projectModalAfbeelding.width = gsmScreenshot ? 780 : 1280;
-        projectModalAfbeelding.height = gsmScreenshot ? 1688 : 800;
+        projectModalAfbeelding.height = gsmScreenshot ? 1940 : 800;
         projectModalAfbeelding.src = gsmScreenshot
             ? inThema(inTaal(project.afbeeldingMobiel), inTaal(project.afbeeldingMobielLicht))
             : inThema(inTaal(project.afbeelding), inTaal(project.afbeeldingLicht));
