@@ -28,19 +28,61 @@ pasThemaToe(opgeslagenThema === "light" ? "light" : "dark");
 // Taal: Engels of Nederlands, los van het thema. De Engelse tekst staat gewoon in index.html;
 // lang/nl.js bevat per sleutel (data-i18n in de HTML) de Nederlandse versie. Teksten die
 // JavaScript zelf maakt, staan in lang/en.js en lang/nl.js.
-// Een eerder gekozen taal wint, anders altijd Engels (de taal van de browser telt niet mee).
+// Een taal in de link (?lang=nl of ?lang=en) wint, dan een eerder gekozen taal, anders altijd
+// Engels (de taal van de browser telt niet mee).
 const vertalingen = { en: TAAL_EN, nl: TAAL_NL };
+const SITE_ADRES = "https://wesley-dev-tech.github.io/";
+const taalInLink = new URLSearchParams(window.location.search).get("lang");
 let huidigeTaal = "en";
 
 try {
-    if (localStorage.getItem("taal") === "nl") {
+    if (taalInLink === "nl" || taalInLink === "en") {
+        huidigeTaal = taalInLink;
+        localStorage.setItem("taal", huidigeTaal);
+    } else if (localStorage.getItem("taal") === "nl") {
         huidigeTaal = "nl";
     }
 } catch (fout) {
-    // Opslag geblokkeerd: dan gewoon Engels
+    // Opslag geblokkeerd: dan geldt alleen de taal in de link
+    if (taalInLink === "nl") {
+        huidigeTaal = "nl";
+    }
+}
+
+// Elke taal heeft een eigen adres: Engels op SITE_ADRES, Nederlands op SITE_ADRES?lang=nl.
+// Zo kun je een link in de juiste taal delen, en indexeert Google beide versies
+// (de hreflang-links in index.html verwijzen naar die twee adressen).
+// De canonical-link volgt de taal; hij staat bewust niet in index.html, anders zou
+// Google de Nederlandse versie als kopie van de Engelse zien.
+function werkTaalAdresBij() {
+    const parameters = new URLSearchParams(window.location.search);
+
+    if (huidigeTaal === "nl") {
+        parameters.set("lang", "nl");
+    } else {
+        parameters.delete("lang");
+    }
+
+    const zoek = parameters.toString();
+    const adres = window.location.pathname + (zoek ? "?" + zoek : "") + window.location.hash;
+
+    if (adres !== window.location.pathname + window.location.search + window.location.hash) {
+        history.replaceState(history.state, "", adres);
+    }
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+
+    if (!canonical) {
+        canonical = document.createElement("link");
+        canonical.rel = "canonical";
+        document.head.append(canonical);
+    }
+
+    canonical.href = SITE_ADRES + (huidigeTaal === "nl" ? "?lang=nl" : "");
 }
 
 document.documentElement.lang = huidigeTaal;
+werkTaalAdresBij();
 
 // Nederlands gekozen: style.css verbergt de pagina tot ze vertaald is, zodat je nooit eerst Engels ziet
 if (huidigeTaal === "nl") {
@@ -118,6 +160,7 @@ const bijTaalwissel = [];
 function wisselTaal(taal) {
     huidigeTaal = taal === "nl" ? "nl" : "en";
     document.documentElement.lang = huidigeTaal;
+    werkTaalAdresBij();
 
     // De keuze onthouden voor een volgend bezoek; lukt dat niet, dan geldt ze alleen nu
     try {
@@ -378,12 +421,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Projecten, van oud naar nieuw. Een nieuw project zet je gewoon onderaan de lijst,
     // met een korte teaser voor de kaart en een screenshot in images/ voor het detailvenster.
     // Heeft een project ook een lichte versie, zet die dan in afbeeldingLicht (en demoLicht).
+    // slug: vaste korte naam voor de eigen link van het project (#project-slug), in beide talen gelijk.
     // Teksten in twee talen schrijf je als { en: "...", nl: "..." }, ook een screenshot per taal
     // (afbeelding en afbeeldingLicht); een naam die in beide
     // talen gelijk is (zoals "Polestar 6"), mag gewoon tekst blijven.
     const projecten = [
         {
             titel: "Polestar 6",
+            slug: "polestar-6",
             teaser: {
                 en: "A fictional pre-order for a roadster convertible with a drone. You can't buy it, but you can dream.",
                 nl: "Een fictieve preorder voor een roadster cabrio met drone. Kopen kan niet, dromen wel."
@@ -404,6 +449,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             titel: { en: "Halloween sign-up page", nl: "Halloween inschrijvingspagina" },
+            slug: "halloween",
             teaser: {
                 en: "A fictional Halloween walk on 31 October. Pick your time slot and don't forget your costume.",
                 nl: "Een fictieve Halloweentocht op 31 oktober. Kies je tijdslot en vergeet je kostuum niet."
@@ -424,6 +470,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             titel: { en: "Crossword puzzle", nl: "Kruiswoordraadsel" },
+            slug: "kruiswoordraadsel",
             teaser: {
                 en: "A fictional crossword you'll never get stuck on. That's because you can't fill it in.",
                 nl: "Een fictief kruiswoordraadsel waarop je nooit vastloopt. Invullen kan namelijk niet."
@@ -443,6 +490,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             titel: { en: "Product page with Tailwind", nl: "Productpagina met Tailwind" },
+            slug: "tailwind-productpagina",
             teaser: {
                 en: "A fictional product card for the AirPods Pro 3. So honest it even lists the downsides.",
                 nl: "Een fictieve productkaart voor AirPods Pro 3. Zo eerlijk dat ze zelfs de nadelen opsomt."
@@ -463,6 +511,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             titel: { en: "Animated browser mockup", nl: "Geanimeerde browsermock-up" },
+            slug: "browser-mockup",
             teaser: {
                 en: "A fictional browser with a cursor that has a mind of its own. And not a single line of JavaScript.",
                 nl: "Een fictieve browser met een cursor die zijn eigen gang gaat. En dat zonder één regel JavaScript."
@@ -487,6 +536,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             titel: "Portfolio",
+            slug: "portfolio",
             teaser: {
                 en: "The only project here that isn't fictional, because you're right in the middle of it. "
                     + "Click View details for a look behind the scenes.",
@@ -509,6 +559,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             titel: { en: "Vloermeesters tile price calculator", nl: "Vloermeesters tegelprijs calculator" },
+            slug: "vloermeesters",
             teaser: {
                 en: "A fictional tiling company. Your quote rolls out as a PDF, but no tiler will ever ring your doorbell.",
                 nl: "Een fictief tegelbedrijf. Je offerte rolt er als PDF uit, alleen belt er nooit een tegelzetter aan."
@@ -529,6 +580,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             titel: { en: "Exam: Griezelnacht", nl: "Examen Griezelnacht" },
+            slug: "examen-griezelnacht",
             teaser: {
                 en: "A fictional spooky night at Kasteel Ravenhoek, and my exam. The ghosts went easy on me: 96 out of 100.",
                 nl: "Een fictieve griezelnacht in Kasteel Ravenhoek, en mijn examen. De spoken waren mild: 96 op 100."
@@ -849,10 +901,88 @@ document.addEventListener("DOMContentLoaded", function () {
         volgendProjectKnop.disabled = plaats >= projectKaarten.length - 1;
     }
 
-    function openProjectModal(kaart) {
+    // Eigen link per project: #project-slug in het adres zolang het venster open is.
+    // Zo kun je een link naar één project delen; wie hem opent, krijgt meteen dat venster.
+    // Openen met een klik voegt een stap toe aan de geschiedenis, zodat de terugknop
+    // (ook op gsm) het venster sluit in plaats van de site te verlaten.
+    const PROJECT_ANKER = "#project-";
+    let projectInGeschiedenis = false;
+
+    function ankerVan(kaart) {
+        return PROJECT_ANKER + projecten[Number(kaart.dataset.order)].slug;
+    }
+
+    function adresMet(anker) {
+        return window.location.pathname + window.location.search + anker;
+    }
+
+    function kaartVanAnker(anker) {
+        if (!anker.startsWith(PROJECT_ANKER)) {
+            return null;
+        }
+
+        const slug = decodeURIComponent(anker.slice(PROJECT_ANKER.length));
+
+        return projectKaarten.find(function (kaart) {
+            return projecten[Number(kaart.dataset.order)].slug === slug;
+        }) || null;
+    }
+
+    // De kaart van een project zichtbaar maken achter het venster, zodat de focus er na het
+    // sluiten op kan landen: op desktop de juiste pagina, op mobiel de carrousel verschuiven
+    function maakKaartZichtbaar(kaart) {
+        if (mobieleWeergave.matches) {
+            kaart.scrollIntoView({ block: "nearest", inline: "center" });
+        } else {
+            toonProjectpagina(Math.floor(projectKaarten.indexOf(kaart) / kaartenPerPagina) + 1);
+        }
+    }
+
+    // viaAdres: het venster opent omdat het adres al naar dit project wijst (gedeelde link,
+    // terug- of vooruitknop); dan niets aan de geschiedenis toevoegen
+    function openProjectModal(kaart, viaAdres) {
         vulProjectModal(kaart);
+
+        if (viaAdres) {
+            projectInGeschiedenis = false;
+        } else {
+            history.pushState({ projectVenster: true }, "", adresMet(ankerVan(kaart)));
+            projectInGeschiedenis = true;
+        }
+
         openVenster(projectModal, kaart.querySelector(".project-open"));
     }
+
+    // Venster dicht: het project uit het adres halen. Was het met een klik geopend, dan een stap
+    // terug in de geschiedenis (de stap die het openen toevoegde), anders gewoon het anker weg.
+    projectModal.addEventListener("close", function () {
+        if (!kaartVanAnker(window.location.hash)) {
+            return;
+        }
+
+        if (projectInGeschiedenis) {
+            projectInGeschiedenis = false;
+            history.back();
+        } else {
+            history.replaceState(history.state, "", adresMet(""));
+        }
+    });
+
+    // Terug- of vooruitknop: venster openen, wisselen of sluiten volgens het adres
+    window.addEventListener("popstate", function () {
+        const kaart = kaartVanAnker(window.location.hash);
+
+        if (kaart && projectModal.open) {
+            vulProjectModal(kaart);
+            maakKaartZichtbaar(kaart);
+        } else if (kaart) {
+            maakKaartZichtbaar(kaart);
+            openProjectModal(kaart, true);
+        } else if (projectModal.open) {
+            projectInGeschiedenis = false;
+            projectModal.close();
+        }
+    });
 
     // Naar het vorige (-1) of volgende (+1) project zonder het venster te sluiten
     function toonAnderProject(stap) {
@@ -865,15 +995,12 @@ document.addEventListener("DOMContentLoaded", function () {
         vulProjectModal(kaart);
         projectModal.scrollTop = 0;
 
-        // Na het sluiten komt de focus op de kaart van het laatst bekeken project. Die moet dan
-        // zichtbaar zijn: op desktop de juiste pagina tonen, op mobiel de carrousel verschuiven.
-        vensterOpener = kaart.querySelector(".project-open");
+        // Het adres volgt mee, zonder extra stap in de geschiedenis
+        history.replaceState(history.state, "", adresMet(ankerVan(kaart)));
 
-        if (mobieleWeergave.matches) {
-            kaart.scrollIntoView({ block: "nearest", inline: "center" });
-        } else {
-            toonProjectpagina(Math.floor(projectKaarten.indexOf(kaart) / kaartenPerPagina) + 1);
-        }
+        // Na het sluiten komt de focus op de kaart van het laatst bekeken project
+        vensterOpener = kaart.querySelector(".project-open");
+        maakKaartZichtbaar(kaart);
 
         // Werd de knop die de focus had uitgeschakeld (eerste of laatste project), focus dan het venster
         if (document.activeElement && document.activeElement.disabled) {
@@ -933,6 +1060,16 @@ document.addEventListener("DOMContentLoaded", function () {
             openProjectModal(kaart);
         }
     });
+
+    // Geopend met een link naar een project (bv. .../#project-examen-griezelnacht): naar de
+    // projecten scrollen en meteen dat venster openen
+    const projectUitLink = kaartVanAnker(window.location.hash);
+
+    if (projectUitLink) {
+        document.querySelector("#projects").scrollIntoView({ behavior: "instant" });
+        maakKaartZichtbaar(projectUitLink);
+        openProjectModal(projectUitLink, true);
+    }
 
     // Secties en kaarten animeren wanneer ze in beeld komen.
     // De kolom met de Google Maps-kaart doet niet mee: Safari en de ingebouwde browser van

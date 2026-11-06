@@ -40,7 +40,7 @@ The light theme uses warm off-white "paper" tones, near-black text and a deeper 
 
 All colors, radii and spacing live as CSS variables at the top of `style.css`. Type is set in Schibsted Grotesk, with IBM Plex Mono for small technical details such as section numbers, labels and the scrolling text bar.
 
-The CSS and JavaScript URLs in `index.html` (`style.css`, `lang/en.js`, `lang/nl.js`, `script.js` and `cv-pdf.js`) share one version query string (`?v=154`). Raise all of them together after a change so browsers load the new files. Leave the favicon URLs alone unless the icon itself changes: every new favicon URL makes Google start over before it shows the icon in search results.
+The CSS and JavaScript URLs in `index.html` (`style.css`, `lang/en.js`, `lang/nl.js`, `script.js` and `cv-pdf.js`) share one version query string (`?v=155`). Raise all of them together after a change so browsers load the new files. Leave the favicon URLs alone unless the icon itself changes: every new favicon URL makes Google start over before it shows the icon in search results.
 
 ## How to View
 
@@ -61,6 +61,9 @@ The same tech stack as on my GitHub profile: frontend (HTML, CSS, JavaScript, Ty
 - A greeting that follows the visitor's time of day ("Goeiemorgen", "Goeiemiddag", "Goeienavond" or "Nog wakker?"), a `T` keyboard shortcut for the theme (not while typing in a field) and a "Laatst bijgewerkt" date in the footer.
 - A scroll progress bar and a continuously scrolling text bar (marquee) below the intro, built with CSS only.
 - A back-to-top button (bottom right, from 400px down) in the house style: copper border and arrow, filled copper on hover or tap.
+- Every language has its own address: English on the home page, Dutch with `?lang=nl`. A language in the link wins over a stored choice, and switching language updates the address, so a shared link opens in the right language. `index.html` has `hreflang` links to both addresses and `sitemap.xml` lists both, so Google indexes both versions; `script.js` sets the canonical link for the active language (it is deliberately not in `index.html`, otherwise Google would treat the Dutch page as a copy of the English one).
+- Every project has its own link, `#project-` plus the `slug` from its entry in `script.js` (for example `#project-examen-griezelnacht`). The link is in the address while the detail modal is open and follows the previous/next arrows; opening a link to a project scrolls to the projects and opens that modal right away. Opening a modal with a click adds a step to the browser history, so the back button (also on phones) closes the modal instead of leaving the site.
+- The Google Maps map in the footer has `loading="lazy"`: it only loads when it is about to scroll into view.
 - "Lees meer" toggles that collapse the longer about and education texts. The first line of `script.js` adds a `js` class to `<html>` before the page is drawn, so the texts are collapsed and the JavaScript-only buttons are in place from the first paint: nothing jumps on load. Without JavaScript all text stays visible and those buttons are hidden.
 - Skills grouped like a tech stack: Frontend, Backend and Tools & development as rows of logos (the same files as on my GitHub profile, from skill-icons and my own tiles, saved in `images/skills/` with a dark and light version where one exists), with the name above a logo on hover, followed by "Concepten & methodologieën" with an icon, name and short explanation.
 - Projects paginated per four on desktop and swipeable with CSS Scroll Snap on mobile. An incomplete last page is centered.

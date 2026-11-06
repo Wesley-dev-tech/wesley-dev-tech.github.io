@@ -25,8 +25,11 @@
     <meta property="og:locale:alternate" content="nl_BE">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Het officiële adres van deze pagina, ook als ze met ?v= of een #anker geopend wordt -->
-    <link rel="canonical" href="https://wesley-dev-tech.github.io/">
+    <!-- Elke taal heeft een eigen adres, zodat Google beide versies indexeert: Engels op de
+         homepagina, Nederlands met ?lang=nl. De canonical-link per taal zet script.js. -->
+    <link rel="alternate" hreflang="en" href="https://wesley-dev-tech.github.io/">
+    <link rel="alternate" hreflang="nl" href="https://wesley-dev-tech.github.io/?lang=nl">
+    <link rel="alternate" hreflang="x-default" href="https://wesley-dev-tech.github.io/">
 
     <!-- Naam van de site die Google boven het zoekresultaat toont -->
     <script type="application/ld+json">
@@ -49,7 +52,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
 
-    <link rel="stylesheet" href="style.css?v=154">
+    <link rel="stylesheet" href="style.css?v=155">
     <link rel="icon" href="/favicon-v3-192x192.png" type="image/png" sizes="192x192">
     <link rel="icon" href="/favicon.ico?v=145" sizes="16x16 32x32 48x48">
     <link rel="icon" href="/favicon-v3-96x96.png" type="image/png" sizes="96x96">
@@ -57,15 +60,15 @@
 
     <!-- De teksten per taal, en daarna script.js. Allebei in de head, zodat het thema en de taal al
          staan voor de pagina getekend wordt. De rest van script.js wacht zelf tot de HTML geladen is. -->
-    <script src="lang/en.js?v=154"></script>
-    <script src="lang/nl.js?v=154"></script>
-    <script src="script.js?v=154"></script>
+    <script src="lang/en.js?v=155"></script>
+    <script src="lang/nl.js?v=155"></script>
+    <script src="script.js?v=155"></script>
 
     <!-- jsPDF en mijn eigen script dat er de cv-pdf mee tekent; defer laadt ze zonder de pagina op te houden -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
         integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous"
         defer></script>
-    <script src="cv-pdf.js?v=154" defer></script>
+    <script src="cv-pdf.js?v=155" defer></script>
 </head>
 
 <body>
@@ -1355,9 +1358,10 @@
                 </div>
 
                 <div class="footer-details">
-                    <!-- Kaart van Google Maps; style.css maakt ze donker in het donkere thema -->
+                    <!-- Kaart van Google Maps; style.css maakt ze donker in het donkere thema.
+                         loading="lazy": Google Maps laadt pas als de kaart bijna in beeld komt -->
                     <div class="footer-map">
-                        <iframe title="Balen on Google Maps" data-i18n-title="footer.kaartTitel"
+                        <iframe title="Balen on Google Maps" data-i18n-title="footer.kaartTitel" loading="lazy"
                             src="https://maps.google.com/maps?q=Balen,+Belgi%C3%AB&amp;z=12&amp;hl=en&amp;output=embed"
                             data-i18n-src="footer.kaartSrc"
                             referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>

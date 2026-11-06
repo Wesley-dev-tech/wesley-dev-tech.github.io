@@ -3,7 +3,7 @@
 // tekst die JavaScript zelf maakt (zie en.js). Ontbreekt hier een sleutel, dan blijft het Engels staan.
 const TAAL_NL = {
     // Paginagegevens
-    "meta.description": "Portfolio van Wesley Bogaerts uit Balen, student Full Stack &amp; AI Automation Developer aan SyntraPXL.",
+    "meta.description": "Portfolio van Wesley Bogaerts uit Balen, student Full Stack & AI Automation Developer aan SyntraPXL.",
 
     // Navigatie
     "nav.skip": "Ga naar de inhoud",
