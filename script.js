@@ -982,11 +982,57 @@ document.addEventListener("DOMContentLoaded", function () {
         voortgangsbalk.style.setProperty("--voortgang", voortgang);
     }
 
+    // Mobiele weergave: header weg bij naar beneden scrollen, terug bij een stukje omhoog.
+    // Bovenaan de pagina, met het menu open of met toetsenbordfocus in de header blijft hij staan.
+    const header = document.querySelector(".site-header");
+    const headerKanVerbergen = window.matchMedia("(max-width: 1199.98px)");
+    const HEADER_START = 150;      // eerst zo ver naar beneden voor de header verdwijnt
+    const HEADER_OMHOOG = 8;       // zoveel px omhoog voor hij terugkomt (geen gespring bij een schokje)
+    let vorigeScrollY = window.scrollY;
+    let omhoogGescrold = 0;
+
+    function zetHeaderVerborgen(verborgen) {
+        header.classList.toggle("is-verborgen", verborgen);
+    }
+
+    function werkHeaderBij() {
+        const y = window.scrollY;
+        const verschil = y - vorigeScrollY;
+        vorigeScrollY = y;
+
+        // Na een tik blijft de focus op bv. de menuknop staan; alleen toetsenbordfocus telt
+        const toetsenbordFocus = header.contains(document.activeElement)
+            && document.activeElement.matches(":focus-visible");
+
+        if (!headerKanVerbergen.matches || y < HEADER_START || navigatie.classList.contains("menu-is-open")
+            || toetsenbordFocus) {
+            omhoogGescrold = 0;
+            zetHeaderVerborgen(false);
+        } else if (verschil > 0) {
+            omhoogGescrold = 0;
+            zetHeaderVerborgen(true);
+        } else if (verschil < 0) {
+            omhoogGescrold -= verschil;
+
+            if (omhoogGescrold >= HEADER_OMHOOG) {
+                zetHeaderVerborgen(false);
+            }
+        }
+    }
+
+    // Met Tab naar de header: meteen tonen
+    header.addEventListener("focusin", function () {
+        if (document.activeElement.matches(":focus-visible")) {
+            zetHeaderVerborgen(false);
+        }
+    });
+
     // Alles wat meebeweegt met de scrollpositie, in één listener
     function werkScrollpositieBij() {
         werkActieveLinkBij();
         werkTerugNaarBovenKnopBij();
         werkVoortgangsbalkBij();
+        werkHeaderBij();
     }
 
     window.addEventListener("scroll", werkScrollpositieBij, { passive: true });

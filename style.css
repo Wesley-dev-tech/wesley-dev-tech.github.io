@@ -206,6 +206,26 @@ h3 {
     border-bottom: 1px solid var(--border-color);
 }
 
+/* Mobiele weergave: de header schuift weg bij naar beneden scrollen en komt terug bij een
+   stukje omhoog (script.js). Via top en niet via transform: een transform zou het gsm-menu,
+   dat rechts buiten beeld klaarstaat, laten meetellen voor de paginabreedte, waardoor de
+   pagina op een gsm uitzoomt. Bij "minder beweging" zonder animatie (onderaan dit bestand). */
+@media (max-width: 1199.98px) {
+    .site-header {
+        transition: top .3s ease;
+    }
+
+    .site-header.is-verborgen {
+        top: calc(-1 * var(--header-height) - 1px);
+    }
+
+    /* De koperen voortgangsbalk blijft dan bovenaan het scherm staan (2px lager: hij hangt
+       1px onder de header, die zelf nog 1px rand heeft) */
+    .site-header.is-verborgen .scroll-progress {
+        transform: translateY(2px) scaleX(var(--voortgang, 0));
+    }
+}
+
 .site-nav {
     min-height: var(--header-height);
     padding: 12px 32px;
@@ -1848,16 +1868,18 @@ html.modal-is-open {
     font-size: .9rem;
 }
 
+/* Terug-naar-bovenknop in de huisstijl: koperen rand en pijl, zoals het WB-monogram;
+   bij hover of tik koper opgevuld, zoals de andere koperen knoppen */
 .back-to-top {
-    --bs-btn-color: var(--text-color);
+    --bs-btn-color: var(--accent);
     --bs-btn-bg: var(--bg-card);
-    --bs-btn-border-color: var(--border-strong);
+    --bs-btn-border-color: var(--accent);
     --bs-btn-hover-color: var(--bg-primary);
-    --bs-btn-hover-bg: var(--text-color);
-    --bs-btn-hover-border-color: var(--text-color);
+    --bs-btn-hover-bg: var(--accent);
+    --bs-btn-hover-border-color: var(--accent);
     --bs-btn-active-color: var(--bg-primary);
-    --bs-btn-active-bg: var(--text-color);
-    --bs-btn-active-border-color: var(--text-color);
+    --bs-btn-active-bg: var(--accent);
+    --bs-btn-active-border-color: var(--accent);
 
     position: fixed;
     right: 24px;
