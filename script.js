@@ -146,9 +146,24 @@ function vertaalPagina() {
             const nieuw = vertaling(element.getAttribute("data-i18n-" + attribuut), origineel[attribuut]);
 
             // Alleen aanpassen als het echt verandert, anders laadt bv. de kaart opnieuw
-            if (element.getAttribute(attribuut) !== nieuw) {
-                element.setAttribute(attribuut, nieuw);
+            if (element.getAttribute(attribuut) === nieuw) {
+                return;
             }
+
+            // Een iframe (de kaart) krijgt een nieuw element met het nieuwe adres. Het adres van een
+            // bestaand iframe veranderen, voegt een stap toe aan de geschiedenis van de browser;
+            // Safari opende daardoor bij "terug" (bv. bij het sluiten van een projectvenster)
+            // de kaart als volledige pagina.
+            if (element.tagName === "IFRAME" && attribuut === "src") {
+                const kopie = element.cloneNode(false);
+
+                kopie.setAttribute("src", nieuw);
+                engelseTeksten.set(kopie, origineel);
+                element.replaceWith(kopie);
+                return;
+            }
+
+            element.setAttribute(attribuut, nieuw);
         });
     });
 }
