@@ -279,13 +279,23 @@ h3 {
     transition: color .2s ease, border-color .2s ease;
 }
 
+/* Icoontjes in koper, zoals de icoontjes bij de sectietitels */
 .nav-links i {
     margin-right: 6px;
+    color: var(--accent);
     font-size: .8em;
 }
 
 .nav-links a:hover {
     color: var(--text-color);
+}
+
+/* Bij hover een zachte koperen streep, als voorproefje van de streep onder de actieve link.
+   Alleen met een muis, anders blijft hij na een tik hangen. */
+@media (hover: hover) {
+    .nav-links a:hover:not([aria-current]) {
+        border-bottom-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    }
 }
 
 .nav-links a[aria-current] {
