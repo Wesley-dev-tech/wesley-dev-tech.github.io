@@ -100,7 +100,12 @@ function leesCv() {
             };
         }),
         talen: Array.from(profiel.querySelectorAll(".cv-languages div")).map(function (taal) {
-            return [tekstVan(taal.querySelector("dt")), tekstVan(taal.querySelector("dd"))];
+            return {
+                naam: tekstVan(taal.querySelector("dt")),
+                niveauTekst: tekstVan(taal.querySelector("dd")),
+                // Aantal koperen blokjes in de meter (1 tot 5), zoals op de site
+                niveau: Number(taal.dataset.niveau) || 0
+            };
         }),
         kenmerken: Array.from(profiel.querySelectorAll(".cv-traits li")).map(tekstVan)
     };
@@ -325,9 +330,11 @@ function tekenCv(pdf, cv, k, s, teken, boven) {
         const binnen = 4.5 * s;
         const links = x + binnen;
         const rechts = x + breedte - binnen;
+        // Talen staan per twee naast elkaar, zoals op de site
+        const talenRijen = Math.ceil(cv.talen.length / 2);
         // De extra ruimte gaat in kleine stukjes naar elke plek tussen de groepen en onderdelen
-        // en onder elke taal, zodat niets zichtbaar uitgerekt wordt
-        const stukje = extra / (cv.vaardigheden.length - 1 + 2 + cv.talen.length);
+        // en onder elke rij talen, zodat niets zichtbaar uitgerekt wordt
+        const stukje = extra / (cv.vaardigheden.length - 1 + 2 + talenRijen);
         const tussen = 3.5 * s + stukje;
 
         function kopje(tekst) {
@@ -343,6 +350,28 @@ function tekenCv(pdf, cv, k, s, teken, boven) {
         kopje(cv.kopjes[0]);
 
         const tagHoogte = regelHoogte(5.5 * s) + 1 * s;
+
+        // Compacte tags die naar de volgende regel gaan als ze niet meer passen; gebruikt voor
+        // de vaardigheden zonder logo's en voor de persoonlijke kenmerken, net als op de site
+        function tags(namen) {
+            letter("courier", "normal", 5.5, k.gedempt);
+            let tagX = links;
+
+            namen.forEach(function (tag) {
+                const tagBreedte = pdf.getTextWidth(tag) + 2.5 * s;
+
+                if (tagX + tagBreedte > rechts) {
+                    tagX = links;
+                    y += tagHoogte + 0.8 * s;
+                }
+
+                vlak(tagX, y, tagBreedte, tagHoogte, 0.6, k.vlak, k.rand);
+                schrijf(tag, tagX + 1.25 * s, y + 0.5 * s);
+                tagX += tagBreedte + 0.8 * s;
+            });
+
+            y += tagHoogte;
+        }
         // Zo klein dat de dertien frontendlogo's op één rij passen
         const logoMaat = 4 * s;
 
@@ -376,85 +405,51 @@ function tekenCv(pdf, cv, k, s, teken, boven) {
             }
 
             // Compacte tags, zodat ook de namen (zonder logo's) ongeveer even veel plaats innemen
-            letter("courier", "normal", 5.5, k.gedempt);
-            let tagX = links;
-
-            groep.namen.forEach(function (tag) {
-                const tagBreedte = pdf.getTextWidth(tag) + 2.5 * s;
-
-                if (tagX + tagBreedte > rechts) {
-                    tagX = links;
-                    y += tagHoogte + 0.8 * s;
-                }
-
-                vlak(tagX, y, tagBreedte, tagHoogte, 0.6, k.vlak, k.rand);
-                schrijf(tag, tagX + 1.25 * s, y + 0.5 * s);
-                tagX += tagBreedte + 0.8 * s;
-            });
-
-            y += tagHoogte;
+            tags(groep.namen);
         });
 
         y += tussen;
 
-        // Talen en kenmerken in 7 pt: zo groot tegenover de tags als op de site (ongeveer 1,3 keer).
-        // Beide in dezelfde twee kolommen, met een koperen streepje ervoor. De eerste kolom is zo
-        // breed als het langste kenmerk; past de tweede er dan niet meer naast, dan staat alles in één kolom.
-        letter("helvetica", "normal", 7, k.gedempt);
-
-        const streepje = 4.5 * s;
-
-        function langsteVan(kolom) {
-            return Math.max.apply(null, cv.kenmerken.filter(function (kenmerk, index) {
-                return index % 2 === kolom;
-            }).map(function (kenmerk) {
-                return pdf.getTextWidth(kenmerk);
-            }));
-        }
-
-        const kolomBreedte = Math.max((rechts - links) / 2, streepje + langsteVan(0) + 3 * s);
-        const kolommen = kolomBreedte + streepje + langsteVan(1) <= rechts - links ? 2 : 1;
-        const rij = regelHoogte(7 * s) + 1 * s;
-
-        function streepjeVoor(sx, sy) {
-            lijn(sx, sy + tekstMidden(7 * s), sx + 2 * s, sy + tekstMidden(7 * s), k.accent, 0.6 * s);
-        }
-
-        // Talen: de taal in de eerste kolom, het niveau in de tweede (onder de kenmerken),
-        // allebei met een streepje ervoor. Is er maar één kolom, dan staat het niveau eronder.
+        // Talen per twee naast elkaar, zoals op de site: de taal in 7 pt met rechts een meter van
+        // vijf blokjes (de eerste niveau in koper, de rest in de randkleur) en het niveau eronder
         kopje(cv.kopjes[1]);
-        letter("helvetica", "normal", 7, k.gedempt);
 
-        cv.talen.forEach(function (taal) {
-            streepjeVoor(links, y);
-            schrijf(taal[0], links + streepje, y);
+        const kolomRuimte = 4 * s;
+        const kolomBreedte = (rechts - links - kolomRuimte) / 2;
+        const blokje = 1.7 * s;
+        const blokjeRuimte = 0.5 * s;
+        const meterBreedte = 5 * blokje + 4 * blokjeRuimte;
+        const meterHoogte = 0.9 * s;
+        const naamHoogte = regelHoogte(7 * s);
 
-            if (kolommen === 1) {
-                y += rij;
+        cv.talen.forEach(function (taal, index) {
+            const tx = links + (index % 2) * (kolomBreedte + kolomRuimte);
+
+            letter("helvetica", "normal", 7, k.tekst);
+            schrijf(taal.naam, tx, y);
+
+            const meterY = y + tekstMidden(7 * s) - meterHoogte / 2;
+
+            for (let blok = 0; blok < 5; blok++) {
+                const bx = tx + kolomBreedte - meterBreedte + blok * (blokje + blokjeRuimte);
+                vlak(bx, meterY, blokje, meterHoogte, 0, blok < taal.niveau ? k.accent : k.randSterk,
+                    blok < taal.niveau ? k.accent : k.randSterk);
             }
 
-            const nx = links + (kolommen - 1) * kolomBreedte;
+            letter("courier", "normal", 6, k.gedempt);
+            schrijf(taal.niveauTekst, tx, y + naamHoogte + 0.6 * s);
 
-            streepjeVoor(nx, y);
-            schrijf(taal[1], nx + streepje, y);
-            y += rij + stukje;
+            // Na de tweede taal (of de laatste) naar de volgende rij
+            if (index % 2 === 1 || index === cv.talen.length - 1) {
+                y += naamHoogte + 0.6 * s + regelHoogte(6 * s) + stukje;
+            }
         });
 
         y += tussen;
 
-        // Kenmerken in twee kolommen
+        // Kenmerken als tags, net als op de site
         kopje(cv.kopjes[2]);
-        letter("helvetica", "normal", 7, k.gedempt);
-
-        cv.kenmerken.forEach(function (kenmerk, index) {
-            const kx = links + (index % kolommen) * kolomBreedte;
-            const ky = y + Math.floor(index / kolommen) * rij;
-
-            streepjeVoor(kx, ky);
-            schrijf(kenmerk, kx + streepje, ky);
-        });
-
-        y += Math.ceil(cv.kenmerken.length / kolommen) * rij;
+        tags(cv.kenmerken);
 
         return y + 4 * s - begin;
     }

@@ -1215,67 +1215,67 @@ h3 {
     justify-content: flex-start;
 }
 
-/* Talen en kenmerken in dezelfde rustige tekst als de taken, zodat ze niet vet ogen */
-.cv-languages,
-.cv-traits {
-    color: var(--text-muted);
+/* Talen: de taal met rechts een meter van vijf koperen blokjes, het niveau in kleine
+   monospace eronder. Twee talen naast elkaar, op smalle gsm's onder elkaar (onderaan). */
+.cv-languages {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 24px;
+    margin: 0;
     font-size: .925rem;
 }
 
-/* Talen: altijd de taal links en het niveau rechts, op elke schermbreedte. Eén raster voor
-   alle talen (de rijen doen niet mee door display: contents), zodat de niveaus onder elkaar
-   beginnen. Elke kolom is minstens zo breed als haar tekst; is er meer plaats, dan zijn ze
-   even breed, net als de twee kolommen van de kenmerken. */
-.cv-languages {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(max-content, 1fr));
-    gap: 8px 16px;
-    margin: 0;
-}
-
 .cv-languages div {
-    display: contents;
-}
-
-/* Kenmerken: twee kolommen waar er plaats is, anders één, zodat een lang woord als
-   "Probleemoplossend" nooit overlapt */
-.cv-traits {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-    gap: 8px 16px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 4px 16px;
 }
 
 .cv-languages dt {
+    color: var(--text-color);
     font-weight: 400;
 }
 
 .cv-languages dd {
+    grid-column: 1 / -1;
     margin: 0;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: .72rem;
 }
 
-.cv-languages dt,
-.cv-languages dd,
-.cv-traits li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+/* De meter: vijf blokjes, de eerste --niveau in koper en de rest in de randkleur.
+   Puur decoratief; schermlezers lezen het niveau in de dd. */
+.cv-languages div::after {
+    --blokje: 12px;
+    --stap: 15.5px;
 
-.cv-languages dt::before,
-.cv-languages dd::before,
-.cv-traits li::before {
     content: "";
-    flex-shrink: 0;
-    width: 12px;
-    height: 2px;
-    background: var(--accent);
+    grid-row: 1;
+    grid-column: 2;
+    width: calc(5 * var(--stap) - (var(--stap) - var(--blokje)));
+    height: 6px;
+    background:
+        repeating-linear-gradient(90deg, var(--accent) 0 var(--blokje), transparent var(--blokje) var(--stap))
+            0 0 / calc(var(--niveau, 0) * var(--stap)) 100% no-repeat,
+        repeating-linear-gradient(90deg, var(--border-strong) 0 var(--blokje), transparent var(--blokje) var(--stap));
 }
+
+.cv-languages [data-niveau="1"] { --niveau: 1; }
+.cv-languages [data-niveau="2"] { --niveau: 2; }
+.cv-languages [data-niveau="3"] { --niveau: 3; }
+.cv-languages [data-niveau="4"] { --niveau: 4; }
+.cv-languages [data-niveau="5"] { --niveau: 5; }
+
+/* Kenmerken gebruiken de gedeelde tags (.tag-list), net als "Concepten & methodieken" */
 
 /* Smalle gsm's: iets compacter, zodat de lange lijst niet eindeloos wordt */
 @media (max-width: 575.98px) {
+    .cv-languages {
+        grid-template-columns: 1fr;
+    }
+
     .cv-item {
         padding-left: 26px;
     }
@@ -2727,27 +2727,25 @@ html.modal-is-open {
         height: 6mm;
     }
 
-    .cv-languages,
-    .cv-traits {
+    /* Talen naast elkaar, met een kleinere meter */
+    .cv-languages {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5mm 4mm;
         font-size: 7.5pt;
     }
 
-    /* Talen en kenmerken in twee kolommen, zodat het profiel niet langer wordt dan nodig */
-    .cv-languages,
-    .cv-traits {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.2mm 3mm;
+    .cv-languages div {
+        gap: .5mm 2mm;
     }
 
-    .cv-languages dt,
-    .cv-languages dd,
-    .cv-traits li {
-        gap: 2mm;
+    .cv-languages dd {
+        font-size: 6pt;
     }
 
-    .cv-languages dt::before,
-    .cv-languages dd::before,
-    .cv-traits li::before {
-        width: 2.5mm;
+    .cv-languages div::after {
+        --blokje: 2.4mm;
+        --stap: 3.1mm;
+
+        height: 1.2mm;
     }
 }

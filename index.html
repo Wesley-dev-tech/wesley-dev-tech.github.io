@@ -49,7 +49,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
 
-    <link rel="stylesheet" href="style.css?v=153">
+    <link rel="stylesheet" href="style.css?v=154">
     <link rel="icon" href="/favicon-v3-192x192.png" type="image/png" sizes="192x192">
     <link rel="icon" href="/favicon.ico?v=145" sizes="16x16 32x32 48x48">
     <link rel="icon" href="/favicon-v3-96x96.png" type="image/png" sizes="96x96">
@@ -57,15 +57,15 @@
 
     <!-- De teksten per taal, en daarna script.js. Allebei in de head, zodat het thema en de taal al
          staan voor de pagina getekend wordt. De rest van script.js wacht zelf tot de HTML geladen is. -->
-    <script src="lang/en.js?v=153"></script>
-    <script src="lang/nl.js?v=153"></script>
-    <script src="script.js?v=153"></script>
+    <script src="lang/en.js?v=154"></script>
+    <script src="lang/nl.js?v=154"></script>
+    <script src="script.js?v=154"></script>
 
     <!-- jsPDF en mijn eigen script dat er de cv-pdf mee tekent; defer laadt ze zonder de pagina op te houden -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
         integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous"
         defer></script>
-    <script src="cv-pdf.js?v=153" defer></script>
+    <script src="cv-pdf.js?v=154" defer></script>
 </head>
 
 <body>
@@ -727,12 +727,13 @@
 
                                         <div class="cv-group">
                                             <h5 class="cv-subhead" data-i18n="cv.talen">Languages</h5>
+                                            <!-- data-niveau (1 tot 5) vult de koperen meter in style.css; het niveau zelf staat in de dd -->
                                             <dl class="cv-languages">
-                                                <div>
+                                                <div data-niveau="5">
                                                     <dt data-i18n="cv.nederlands">Dutch</dt>
                                                     <dd data-i18n="cv.moedertaal">Native</dd>
                                                 </div>
-                                                <div>
+                                                <div data-niveau="4">
                                                     <dt data-i18n="cv.engels">English</dt>
                                                     <dd data-i18n="cv.goedeKennis">Good command</dd>
                                                 </div>
@@ -741,7 +742,7 @@
 
                                         <div class="cv-group">
                                             <h5 class="cv-subhead" data-i18n="cv.kenmerken">Personal traits</h5>
-                                            <ul class="cv-traits">
+                                            <ul class="tag-list cv-traits">
                                                 <li data-i18n="cv.leergierig">Eager to learn</li>
                                                 <li data-i18n="cv.analytisch">Analytical</li>
                                                 <li data-i18n="cv.probleemoplossend">Problem solver</li>
