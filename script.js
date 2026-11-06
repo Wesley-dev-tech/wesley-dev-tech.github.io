@@ -190,6 +190,18 @@ function wisselTaal(taal) {
     });
 }
 
+// De Google Maps-kaart in de footer staat op loading="lazy", zodat ze het openen van de site niet
+// afremt. Zodra de rest van de pagina geladen is, mag ze toch al laden: dan staat ze klaar als je
+// onderaan komt, in plaats van pas dan te beginnen. (Het iframe opvragen op dat moment, want
+// vertaalPagina kan het door een nieuw element vervangen hebben.)
+window.addEventListener("load", function () {
+    const kaart = document.querySelector(".footer-map iframe");
+
+    if (kaart) {
+        kaart.loading = "eager";
+    }
+});
+
 // De rest werkt met de elementen op de pagina en wacht dus tot de HTML geladen is
 document.addEventListener("DOMContentLoaded", function () {
     // Bezoekers die minder beweging willen: geen scroll-animaties en direct springen
