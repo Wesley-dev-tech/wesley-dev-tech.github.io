@@ -1872,12 +1872,64 @@ html.modal-is-open {
     padding-top: 8px;
 }
 
-/* Compacter dan de andere knoppen, in verhouding met de kleinere screenshot */
+/* Compacter dan de andere knoppen, in verhouding met de kleinere screenshot op gsm en tablet */
 .project-button .btn {
     gap: 8px;
     min-height: 42px;
     padding: 8px 18px;
     font-size: .9rem;
+}
+
+/* Desktop: de screenshot is hier 960px breed, dus tekst en knoppen een stap groter,
+   zodat ze in verhouding blijven met de screenshot */
+@media (min-width: 1072px) {
+    .project-modal {
+        --modal-content-width: 640px;
+    }
+
+    .project-modal .project-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 1.5rem;
+    }
+
+    .project-modal-head h2 {
+        font-size: 1.85rem;
+    }
+
+    .project-modal-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+
+    .project-modal-description,
+    .project-modal-grade blockquote {
+        font-size: 1.0625rem;
+    }
+
+    .project-modal-grade {
+        padding: 24px 28px;
+    }
+
+    .project-modal-score {
+        font-size: 2rem;
+    }
+
+    .project-modal h3 {
+        font-size: .8rem;
+    }
+
+    .project-modal .project-tags li {
+        padding: 3px 10px;
+        font-size: .8rem;
+    }
+
+    .project-button .btn {
+        min-height: 46px;
+        padding: 10px 22px;
+        font-size: 1rem;
+    }
 }
 
 /* Terug-naar-bovenknop in de huisstijl: koperen rand en pijl, zoals het WB-monogram;
