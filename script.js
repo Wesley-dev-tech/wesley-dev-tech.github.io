@@ -880,7 +880,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return "";
         }
 
-        return [520, 780, 1040].map(function (breedte) {
+        return [520, 780, 960].map(function (breedte) {
             return delen[1] + "-" + breedte + ".webp " + breedte + "w";
         }).concat(pad + " 1280w").join(", ");
     }

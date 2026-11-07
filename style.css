@@ -1720,7 +1720,10 @@ html.modal-is-open {
 
 /* Detailvenster van een project */
 .project-modal {
-    /* Breedte van screenshot en alles eronder, zodat de tekst niet breder is dan de afbeelding */
+    /* Breder dan de andere vensters, zodat de screenshot groot genoeg is om leesbaar te zijn:
+       een pagina van 1280px op 960px in plaats van op 520px. De tekst eronder blijft
+       --modal-content-width breed, zodat de regels niet te lang worden om te lezen. */
+    width: min(1040px, calc(100% - 32px));
     --modal-content-width: 520px;
 }
 
@@ -1791,11 +1794,10 @@ html.modal-is-open {
     }
 }
 
-/* Bewust kleiner dan het venster, zodat de screenshot de tekst niet overheerst */
+/* Over de volle breedte van het venster (desktop 960px), breder dan de tekst eronder */
 .project-modal-image {
     display: block;
     width: 100%;
-    max-width: var(--modal-content-width);
     height: auto;
     aspect-ratio: 16 / 10;
     object-fit: cover;

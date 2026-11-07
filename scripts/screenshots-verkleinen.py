@@ -1,17 +1,17 @@
 """Maakt van elke projectscreenshot scherpe, verkleinde versies voor het detailvenster.
 
-Het venster toont een screenshot op desktop 520px breed. Laat je de browser zelf een
-screenshot van 1280px verkleinen, dan worden kleine tekst en dunne lijnen wazig. Daarom
-staan er naast elke screenshot drie vooraf verkleinde versies (520, 780 en 1040px breed,
-voor gewone schermen, schermen met 150% en met 200% schaal); script.js laat de browser
-via srcset de passende kiezen.
+Het venster toont een screenshot op desktop 960px breed, op gsm en tablet zo breed als
+het scherm min de marges. Laat je de browser zelf een screenshot van 1280px verkleinen,
+dan worden kleine tekst en dunne lijnen wazig. Daarom staan er naast elke screenshot drie
+vooraf verkleinde versies (520, 780 en 960px breed); script.js laat de browser via srcset
+de passende kiezen, met de originele 1280px als grootste.
 
 Gebruik (vanuit de map van de repo, met Pillow geïnstalleerd):
 
     python3 scripts/screenshots-verkleinen.py
 
 Het script zoekt alle screenshots die in script.js bij een project staan (afbeelding en
-afbeeldingLicht) en maakt voor elk naam-520.webp, naam-780.webp en naam-1040.webp ernaast.
+afbeeldingLicht) en maakt voor elk naam-520.webp, naam-780.webp en naam-960.webp ernaast.
 Een bestaande versie wordt alleen opnieuw gemaakt als de screenshot nieuwer is.
 """
 import pathlib
@@ -20,7 +20,7 @@ import re
 from PIL import Image, ImageFilter
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
-BREEDTES = (520, 780, 1040)
+BREEDTES = (520, 780, 960)
 
 
 def screenshots():
