@@ -582,7 +582,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tags: ["HTML", "CSS", "JavaScript", "Flexbox", "Bootstrap"],
             afbeelding: { en: "images/portfolio-dark-en.webp", nl: "images/portfolio-dark-nl.webp" },
             afbeeldingLicht: { en: "images/portfolio-light-en.webp", nl: "images/portfolio-light-nl.webp" },
-            code: "https://github.com/Wesley-dev-tech/Portfolio"
+            code: "https://github.com/Wesley-dev-tech/wesley-dev-tech.github.io"
         },
         {
             titel: { en: "Vloermeesters tile price calculator", nl: "Vloermeesters tegelprijs calculator" },
