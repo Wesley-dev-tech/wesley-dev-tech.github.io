@@ -870,6 +870,21 @@ document.addEventListener("DOMContentLoaded", function () {
     projectModalAfbeelding.addEventListener("load", toonScreenshot);
     projectModalAfbeelding.addEventListener("error", toonScreenshot);
 
+    // Scherpe, vooraf verkleinde versies van een screenshot (scripts/screenshots-verkleinen.py):
+    // de browser kiest via srcset de versie die past bij de breedte en de schaal van het scherm,
+    // in plaats van zelf een screenshot van 1280px te verkleinen (dat maakt kleine tekst wazig)
+    function screenshotSrcset(pad) {
+        const delen = pad.match(/^(.+)\.webp(\?.*)?$/);
+
+        if (!delen) {
+            return "";
+        }
+
+        return [520, 780, 1040].map(function (breedte) {
+            return delen[1] + "-" + breedte + ".webp " + breedte + "w";
+        }).concat(pad + " 1280w").join(", ");
+    }
+
     // Vult het detailvenster met één project; gebruikt bij openen en bij vorige/volgende
     function vulProjectModal(kaart) {
         const project = projecten[Number(kaart.dataset.order)];
@@ -885,11 +900,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return lichtThema && licht ? licht : donker;
         }
 
-        const nieuweScreenshot = new URL(inThema(inTaal(project.afbeelding), inTaal(project.afbeeldingLicht)),
-            document.baseURI).href;
+        const screenshotPad = inThema(inTaal(project.afbeelding), inTaal(project.afbeeldingLicht));
+        const nieuweScreenshot = new URL(screenshotPad, document.baseURI).href;
 
         if (projectModalAfbeelding.src !== nieuweScreenshot) {
             projectModalAfbeelding.classList.remove("is-geladen");
+            projectModalAfbeelding.srcset = screenshotSrcset(screenshotPad);
             projectModalAfbeelding.src = nieuweScreenshot;
 
             // Al in de cache: dan meteen tonen (load komt dan soms niet meer)
