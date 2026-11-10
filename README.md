@@ -86,6 +86,7 @@ The same tech stack as on my GitHub profile: frontend (HTML, CSS, JavaScript, Ty
 - Animated browser mockup featuring a CSS cursor and scrolling animation.
 - Vloermeesters tile price calculator: a course project for a fictional tiling company, with JavaScript price calculations and downloadable PDF quotes made with jsPDF.
 - Griezelnacht exam: my exam for the Fundamentals & tooling module, a fictional Halloween night at Kasteel Ravenhoek built with Bootstrap, Flexbox, CSS variables and Google Fonts. Its modal also shows the score (96/100) and my teacher's feedback.
+- North Pole on Christmas Eve: an interactive 3D night scene with Santa's workshop and an elf village full of animated elves, built with Three.js, procedural textures, custom GLSL shaders and procedural Web Audio, without 3D models or image files.
 
 Each project has its own GitHub repository. The detail modal of each project links to the live demo on GitHub Pages (`https://wesley-dev-tech.github.io/<repo>/`) and to the code on GitHub.
 

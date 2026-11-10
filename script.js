@@ -639,6 +639,43 @@ document.addEventListener("DOMContentLoaded", function () {
                     + "onderaan de hero! Nu nog de javascript klik vinden en dan ben je vertrokken! PROFICIAT"
             }
         },
+        {
+            titel: { en: "North Pole on Christmas Eve", nl: "Noordpool op kerstavond" },
+            slug: "noordpool-kerstavond",
+            teaser: {
+                en: "Three.js? Around here it's called Tree.js. A whole Christmas village in your browser, without a single 3D model.",
+                nl: "Three.js? Hier heet het Tree.js. Een heel kerstdorp in je browser, zonder één 3D-model."
+            },
+            icoon: "fa-sleigh",
+            beschrijving: {
+                en: "What started as 'just a pole at 90° N' got slightly out of hand. The North Pole on "
+                    + "Christmas Eve, built entirely in Three.js without a single 3D model or image: "
+                    + "everything is shapes, procedural textures and custom shaders. Next to Santa's "
+                    + "workshop lies an elf village with six houses, and those elves work harder than I "
+                    + "do near a deadline: they have a snowball fight, chop wood, hang up lights and haul "
+                    + "a sleigh full of presents along the path. Thanks to obstacle avoidance nobody walks "
+                    + "through Santa anymore. That wasn't always the case. Click almost anything: the "
+                    + "workshop door sends an elf with a present to the tree, the sleigh does a loop and "
+                    + "your wish flies from the mailbox into the chimney. The northern lights, the snow "
+                    + "and the sleigh bells are all generated live. No bugs found, just features wearing "
+                    + "a Santa hat.",
+                nl: "Wat begon als 'gewoon een paal op 90° N' liep een klein beetje uit de hand. De "
+                    + "Noordpool op kerstavond, volledig in Three.js, zonder één 3D-model of afbeelding: "
+                    + "alles is vormen, procedurele texturen en eigen shaders. Naast de werkplaats van de "
+                    + "Kerstman ligt een elfendorp met zes huisjes, en die elfjes werken harder dan ik "
+                    + "vlak voor een deadline: ze houden een sneeuwballengevecht, hakken hout, hangen "
+                    + "lichtjes op en sleuren een slee vol cadeaus over het pad. Dankzij obstakelontwijking "
+                    + "loopt niemand nog door de Kerstman heen. Dat was niet altijd zo. Klik op bijna "
+                    + "alles: de werkplaatsdeur stuurt een elfje met een cadeau naar de kerstboom, de slee "
+                    + "maakt een looping en je wens vliegt via de brievenbus de schoorsteen in. Het "
+                    + "noorderlicht, de sneeuw en de sleebelletjes worden live berekend. Geen bugs "
+                    + "gevonden, alleen features met een kerstmuts op."
+            },
+            tags: ["HTML", "CSS", "JavaScript", "Three.js"],
+            demo: "https://wesley-dev-tech.github.io/noordpool-kerstavond/",
+            afbeelding: "images/noordpool-kerstavond.webp",
+            code: "https://github.com/Wesley-dev-tech/noordpool-kerstavond"
+        },
     ];
 
     const projectLijst = document.querySelector("#project-list");
