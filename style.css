@@ -2287,6 +2287,19 @@ html.modal-is-open {
     text-align: center;
 }
 
+/* Badge van de AI slop detector onder de publicatiedatum */
+.slop-badge {
+    margin: 10px 0 0;
+    text-align: center;
+}
+
+.slop-badge img {
+    display: inline-block;
+    height: 20px;
+    width: auto;
+    vertical-align: middle;
+}
+
 /* Knop die eruitziet als een onderlijnde link in de lopende tekst */
 .privacy-open {
     padding: 4px 0;
