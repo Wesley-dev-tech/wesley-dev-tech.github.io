@@ -22,7 +22,7 @@ const TAAL_EN = {
     "project.screenshot": "Screenshot of ",
 
     // Contactformulier
-    "form.bezig": "Sending…",
+    "form.bezig": "Sending...",
     "form.verstuur": "Send message",
     "form.gelukt": "Message delivered! Thanks for reaching out, I'll get back to you as soon as possible.",
     "form.mislukt": "Oops, your message got lost somewhere between here and my inbox. Please try again or give me a call.",
