@@ -2,6 +2,28 @@
 // dan de lange teksten al in en toont de knoppen, zodat er bij het laden niets verspringt.
 document.documentElement.classList.add("js");
 
+// Houdt bij waarmee de bezoeker de site bedient. Alleen bij toetsenbordgebruik hoort er een
+// focusring te staan; na een muisklik of een tik op het scherm niet, ook niet wanneer het
+// script de focus daarna zelf verplaatst (zoals bij het sluiten van een venster).
+document.documentElement.dataset.invoer = "aanwijzer";
+
+document.addEventListener("keydown", function (gebeurtenis) {
+    if (gebeurtenis.metaKey || gebeurtenis.ctrlKey || gebeurtenis.altKey) {
+        return;
+    }
+
+    const navigatietoetsen = ["Tab", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight",
+        "Home", "End", "PageUp", "PageDown", "Enter", " ", "Escape"];
+
+    if (navigatietoetsen.includes(gebeurtenis.key)) {
+        document.documentElement.dataset.invoer = "toetsenbord";
+    }
+}, true);
+
+document.addEventListener("pointerdown", function () {
+    document.documentElement.dataset.invoer = "aanwijzer";
+}, true);
+
 // Licht of donker thema, meteen toegepast zodra dit script in de head geladen wordt,
 // zodat de pagina nooit eerst in het verkeerde thema verschijnt.
 // Een eerder gekozen thema wint, anders start de site altijd in het donkere thema.
@@ -1521,3 +1543,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+// De site als app: de service worker bewaart de pagina en haar bestanden, zodat het portfolio
+// ook opent zonder internet en bezoekers het op hun beginscherm kunnen zetten. Op een gewone
+// http-pagina laat de browser dit niet toe, vandaar de controle.
+if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/sw.js").catch(function (fout) {
+            console.warn("Service worker niet geregistreerd:", fout);
+        });
+    });
+}

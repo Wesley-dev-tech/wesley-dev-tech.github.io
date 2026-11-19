@@ -58,6 +58,13 @@
     <link rel="icon" href="/favicon-v3-96x96.png" type="image/png" sizes="96x96">
     <link rel="apple-touch-icon" href="/apple-touch-icon-v3.png">
 
+    <!-- Als app te installeren op telefoon en desktop: het manifest beschrijft naam, kleuren en
+         pictogrammen, de service worker (onderaan script.js geregistreerd) bewaart de bestanden. -->
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Wesley Dev">
+
     <!-- De teksten per taal, en daarna script.js. Allebei in de head, zodat het thema en de taal al
          staan voor de pagina getekend wordt. De rest van script.js wacht zelf tot de HTML geladen is. -->
     <script src="lang/en.js?v=161"></script>
@@ -404,7 +411,7 @@
                                         <li class="cv-item">
                                             <p class="cv-date" data-i18n="cv.werk1.datum"><time datetime="2025-02">February 2025</time> - <time datetime="2026-09">September 2026</time></p>
                                             <h5 data-i18n="cv.werk1.functie">Finance Assistant</h5>
-                                            <p class="cv-place">Soudal NV <span aria-hidden="true">·</span> Turnhout</p>
+                                            <p class="cv-place">Soudal NV, Turnhout</p>
                                             <ul class="cv-tasks">
                                                 <li data-i18n="cv.werk1.taak1">Validating and processing purchase invoices in SAP</li>
                                                 <li data-i18n="cv.werk1.taak2">Monitoring supplier balances and managing accounts payable</li>
@@ -417,7 +424,7 @@
                                         <li class="cv-item">
                                             <p class="cv-date" data-i18n="cv.werk2.datum"><time datetime="2022-08">August 2022</time> - <time datetime="2025-01">January 2025</time></p>
                                             <h5 data-i18n="cv.werk2.functie">Finance Assistant</h5>
-                                            <p class="cv-place">Oqema NV <span aria-hidden="true">·</span> Pelt</p>
+                                            <p class="cv-place">Oqema NV, Pelt</p>
                                             <ul class="cv-tasks">
                                                 <li data-i18n="cv.werk2.taak1">Managing accounts receivable and accounts payable</li>
                                                 <li data-i18n="cv.werk2.taak2">Preparing and filing the monthly VAT, ICO and Intrastat returns</li>
@@ -432,7 +439,7 @@
                                         <li class="cv-item">
                                             <p class="cv-date" data-i18n="cv.werk3.datum"><time datetime="2021-10">October 2021</time> - <time datetime="2022-06">June 2022</time></p>
                                             <h5 data-i18n="cv.werk3.functie">Finance Assistant <span class="cv-note">(temporary project)</span></h5>
-                                            <p class="cv-place">Smet Group <span aria-hidden="true">·</span> Dessel</p>
+                                            <p class="cv-place">Smet Group, Dessel</p>
                                             <ul class="cv-tasks">
                                                 <li data-i18n="cv.werk3.taak1">Processing invoices and bank transactions in WIC and BouwOffice</li>
                                                 <li data-i18n="cv.werk3.taak2">Responsible for accounts payable</li>
@@ -443,7 +450,7 @@
                                         <li class="cv-item">
                                             <p class="cv-date" data-i18n="cv.werk4.datum"><time datetime="2021-08">August 2021</time> - <time datetime="2021-10">October 2021</time></p>
                                             <h5 data-i18n="cv.werk4.functie">Junior Accountant</h5>
-                                            <p class="cv-place">ToMik Consultancy <span aria-hidden="true">·</span> Dessel</p>
+                                            <p class="cv-place">ToMik Consultancy, Dessel</p>
                                             <ul class="cv-tasks">
                                                 <li data-i18n="cv.werk4.taak1">Processing invoices and bank transactions</li>
                                                 <li data-i18n="cv.werk4.taak2">Processing CODA files</li>
@@ -454,7 +461,7 @@
                                         <li class="cv-item">
                                             <p class="cv-date" data-i18n="cv.werk5.datum"><time datetime="2021-02">February 2021</time> - <time datetime="2021-05">May 2021</time></p>
                                             <h5 data-i18n="cv.werk5.functie">Admin &amp; Customer Service</h5>
-                                            <p class="cv-place">Recycling Partners Belgium <span aria-hidden="true">·</span> Turnhout</p>
+                                            <p class="cv-place">Recycling Partners Belgium, Turnhout</p>
                                             <ul class="cv-tasks">
                                                 <li data-i18n="cv.werk5.taak1">Final responsibility for data entry in Waste Management Online</li>
                                                 <li data-i18n="cv.werk5.taak2">Customer service</li>
@@ -465,7 +472,7 @@
                                         <li class="cv-item">
                                             <p class="cv-date" data-i18n="cv.werk6.datum"><time datetime="2010-01">January 2010</time> - <time datetime="2020-03">March 2020</time></p>
                                             <h5 data-i18n="cv.werk6.functie">Administrative Clerk</h5>
-                                            <p class="cv-place">Happyland <span aria-hidden="true">·</span> Herenthout</p>
+                                            <p class="cv-place">Happyland, Herenthout</p>
                                             <ul class="cv-tasks">
                                                 <li data-i18n="cv.werk6.taak1">Final responsibility for processing and verifying orders</li>
                                                 <li data-i18n="cv.werk6.taak2">Customer service and complaint handling</li>
@@ -488,37 +495,37 @@
                                             <li class="cv-item is-current">
                                                 <p class="cv-date" data-i18n="cv.opl1.datum"><time datetime="2026">2026</time> - present</p>
                                                 <h5>Full Stack &amp; AI Automation Developer</h5>
-                                                <p class="cv-place">SyntraPXL <span aria-hidden="true">·</span> Genk</p>
+                                                <p class="cv-place">SyntraPXL, Genk</p>
                                             </li>
 
                                             <li class="cv-item">
                                                 <p class="cv-date"><time datetime="2021">2021</time> - <time datetime="2024">2024</time></p>
                                                 <h5 data-i18n="cv.opl2.titel">Associate Degree in Accounting &amp; Administration</h5>
-                                                <p class="cv-place">Thomas More Hogeschool <span aria-hidden="true">·</span> Geel</p>
+                                                <p class="cv-place">Thomas More Hogeschool, Geel</p>
                                             </li>
 
                                             <li class="cv-item">
                                                 <p class="cv-date"><time datetime="2020">2020</time> - <time datetime="2021">2021</time></p>
                                                 <h5 data-i18n="cv.opl3.titel">Accounting Clerk</h5>
-                                                <p class="cv-place">Cevora, Campus Boomgaard <span aria-hidden="true">·</span> Turnhout</p>
+                                                <p class="cv-place">Cevora, Campus Boomgaard, Turnhout</p>
                                             </li>
 
                                             <li class="cv-item">
                                                 <p class="cv-date"><time datetime="2006">2006</time> - <time datetime="2008">2008</time></p>
                                                 <h5 data-i18n="cv.opl4.titel">Preschool Teacher Training</h5>
-                                                <p class="cv-place">Katholieke Hogeschool Kempen <span aria-hidden="true">·</span> Vorselaar</p>
+                                                <p class="cv-place">Katholieke Hogeschool Kempen, Vorselaar</p>
                                             </li>
 
                                             <li class="cv-item">
                                                 <p class="cv-date"><time datetime="2005">2005</time> - <time datetime="2006">2006</time></p>
                                                 <h5 data-i18n="cv.opl5.titel">Business Management</h5>
-                                                <p class="cv-place">Francesco Paviljoen <span aria-hidden="true">·</span> Herentals</p>
+                                                <p class="cv-place">Francesco Paviljoen, Herentals</p>
                                             </li>
 
                                             <li class="cv-item">
                                                 <p class="cv-date"><time datetime="1999">1999</time> - <time datetime="2005">2005</time></p>
                                                 <h5 data-i18n="cv.opl6.titel">Administrative and Commercial Assistant</h5>
-                                                <p class="cv-place">Francesco Paviljoen <span aria-hidden="true">·</span> Herentals</p>
+                                                <p class="cv-place">Francesco Paviljoen, Herentals</p>
                                             </li>
                                         </ol>
                                     </section>

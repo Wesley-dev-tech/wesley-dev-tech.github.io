@@ -106,11 +106,19 @@ h3 {
     color: var(--bg-primary);
 }
 
-/* Toetsenbordfocus op de titelknop van een projectkaart toont de rand rond de hele kaart */
-:focus-visible,
-.project-card:has(.project-open:focus-visible) {
+/* Toetsenbordfocus op de titelknop van een projectkaart toont de rand rond de hele kaart.
+   De rand verschijnt alleen zolang de laatste invoer van het toetsenbord kwam: script.js zet
+   daarvoor data-invoer op <html>. Na een klik of een tik op het scherm blijft er dus geen
+   kader achter, ook niet wanneer het script de focus zelf verplaatst (menu, venster sluiten). */
+html[data-invoer="toetsenbord"] :focus-visible,
+html[data-invoer="toetsenbord"] .project-card:has(.project-open:focus-visible) {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
+}
+
+html:not([data-invoer="toetsenbord"]) :focus,
+html:not([data-invoer="toetsenbord"]) :focus-visible {
+    outline: none;
 }
 
 .skip-link {
@@ -1627,7 +1635,8 @@ h3 {
     }
 }
 
-.project-open:focus-visible {
+/* De knop zelf blijft zonder rand: de rand komt rond de hele kaart te staan (zie boven). */
+html .project-open:focus-visible {
     outline: none;
 }
 
