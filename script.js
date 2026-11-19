@@ -680,32 +680,37 @@ document.addEventListener("DOMContentLoaded", function () {
             titel: "Bloei app",
             slug: "bloei-app",
             teaser: {
-                en: "A gentle daily diary for meals, drinks, supplements and weight. Try the demo: nothing you tap is kept.",
-                nl: "Een zacht dagboek voor eten, drinken, supplementen en gewicht. Probeer de demo: niets wat je aantikt blijft bewaard."
+                en: "A diary without red numbers or guilt. Your data stays home: even I can't see it.",
+                nl: "Een dagboek zonder rode cijfers of schuldgevoel. Je gegevens blijven thuis: zelfs ik kan ze niet zien."
             },
             icoon: "fa-seedling",
             beschrijving: {
-                en: "Bloei is a personal app that keeps a day together: meals, what you drink, your "
-                    + "supplements, your mood and energy, and your weight once a week. Not a strict "
-                    + "tracker shouting in red, but a calm diary that notices the good days too. "
-                    + "It's a progressive web app built with Vite, so it installs on an iPhone home "
-                    + "screen and keeps working without internet: everything lives locally in "
-                    + "IndexedDB. The real version runs on Vercel from a private repository, so what "
-                    + "you see here is a demo with invented data for 'Sofie'. Click anything you "
-                    + "like, nothing is saved. Hardest part? Not the code, but keeping it simple.",
-                nl: "Bloei is een persoonlijke app die een dag samenhoudt: maaltijden, wat je drinkt, "
-                    + "je supplementen, je stemming en energie, en wekelijks je gewicht. Geen strenge "
-                    + "tracker die in het rood staat te roepen, maar een rustig dagboek dat ook de "
-                    + "goeie dagen opmerkt. Het is een progressive web app gebouwd met Vite, dus ze "
-                    + "staat op het beginscherm van een iPhone en blijft werken zonder internet: "
-                    + "alles wordt lokaal in IndexedDB bewaard. De echte versie draait op Vercel "
-                    + "vanuit een privérepository, dus wat je hier ziet is een demo met verzonnen "
-                    + "gegevens van 'Sofie'. Klik gerust alles aan, niets blijft bewaard. Het "
-                    + "moeilijkste? Niet de code, maar het simpel houden."
+                en: "Bloei holds a day together: what you eat and drink, your supplements, your mood "
+                    + "and energy, and your weight once a week. Not an app that turns red because "
+                    + "you're 42 calories over, but one that also notices it was simply a good day. "
+                    + "It's a progressive web app built with Vite: it sits on an iPhone or Android "
+                    + "home screen as if it came from a store, and it keeps working in a basement with no "
+                    + "signal, because everything lives locally in IndexedDB. Nothing leaves the "
+                    + "device, which does make debugging a sport. The real version runs on Vercel "
+                    + "from a private repository; what you see here is the demo, with Sofie and her "
+                    + "invented Thursday. Click it all to pieces, 'Opnieuw beginnen' says nothing "
+                    + "ever happened.",
+                nl: "Bloei houdt een dag samen: wat je eet en drinkt, je supplementen, je stemming "
+                    + "en energie, en wekelijks je gewicht. Geen app die in het rood springt omdat "
+                    + "je 42 calorieën te ver zit, wel eentje die ook opmerkt dat het gewoon een "
+                    + "goeie dag was. Het is een progressive web app gebouwd met Vite: ze staat op "
+                    + "het beginscherm van je iPhone of Android-toestel alsof ze uit een store "
+                    + "komt, en blijft "
+                    + "werken in een kelder zonder bereik, want alles leeft lokaal in IndexedDB. Er "
+                    + "gaat niets het toestel af, wat debuggen meteen een sport maakt. De echte "
+                    + "versie draait op Vercel vanuit een privérepository; wat je hier ziet is de "
+                    + "demo, met Sofie en haar verzonnen donderdag. Klik gerust alles kapot, met "
+                    + "'Opnieuw beginnen' is er niets gebeurd."
             },
             tags: ["HTML", "CSS", "JavaScript", "Vite", "PWA"],
             demo: "https://bloei-demo.vercel.app/#/vandaag",
-            afbeelding: "images/bloei-app.webp"
+            afbeelding: "images/bloei-app-dark.webp",
+            afbeeldingLicht: "images/bloei-app-light.webp"
         },
     ];
 
