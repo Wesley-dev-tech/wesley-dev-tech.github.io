@@ -694,7 +694,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     + "device, which does make debugging a sport. The real version runs on Vercel "
                     + "from a private repository; what you see here is the demo, with Sofie and her "
                     + "invented Thursday. Click it all to pieces, 'Opnieuw beginnen' says nothing "
-                    + "ever happened.",
+                    + "ever happened. Rather have the real thing than the demo? Send me a message "
+                    + "through the contact form below: the app is yours, completely free.",
                 nl: "Bloei houdt een dag samen: wat je eet en drinkt, je supplementen, je stemming "
                     + "en energie, en wekelijks je gewicht. Geen app die in het rood springt omdat "
                     + "je 42 calorieën te ver zit, wel eentje die ook opmerkt dat het gewoon een "
@@ -705,7 +706,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     + "gaat niets het toestel af, wat debuggen meteen een sport maakt. De echte "
                     + "versie draait op Vercel vanuit een privérepository; wat je hier ziet is de "
                     + "demo, met Sofie en haar verzonnen donderdag. Klik gerust alles kapot, met "
-                    + "'Opnieuw beginnen' is er niets gebeurd."
+                    + "'Opnieuw beginnen' is er niets gebeurd. Liever de echte app dan de demo? "
+                    + "Stuur me een bericht via het contactformulier hieronder: ze is volledig "
+                    + "gratis."
             },
             tags: ["HTML", "CSS", "JavaScript", "Vite", "PWA"],
             demo: "https://bloei-demo.vercel.app/#/vandaag",
