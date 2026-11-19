@@ -693,7 +693,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     + "signal, because everything lives locally in IndexedDB. Nothing leaves the "
                     + "device, which does make debugging a sport. The real version runs on Vercel "
                     + "from a private repository; what you see here is the demo, with Sofie and her "
-                    + "invented Thursday. Click it all to pieces, 'Opnieuw beginnen' says nothing "
+                    + "invented day. Click it all to pieces, 'Opnieuw beginnen' says nothing "
                     + "ever happened. Rather have the real thing than the demo? Send me a message "
                     + "through the contact form below: the app is yours, completely free.",
                 nl: "Bloei houdt een dag samen: wat je eet en drinkt, je supplementen, je stemming "
@@ -705,7 +705,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     + "werken in een kelder zonder bereik, want alles leeft lokaal in IndexedDB. Er "
                     + "gaat niets het toestel af, wat debuggen meteen een sport maakt. De echte "
                     + "versie draait op Vercel vanuit een privérepository; wat je hier ziet is de "
-                    + "demo, met Sofie en haar verzonnen donderdag. Klik gerust alles kapot, met "
+                    + "demo, met Sofie en haar verzonnen dag. Klik gerust alles kapot, met "
                     + "'Opnieuw beginnen' is er niets gebeurd. Liever de echte app dan de demo? "
                     + "Stuur me een bericht via het contactformulier hieronder: ze is volledig "
                     + "gratis."
