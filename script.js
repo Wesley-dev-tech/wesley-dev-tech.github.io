@@ -695,7 +695,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     + "from a private repository; what you see here is the demo, with Sofie and her "
                     + "invented day. Click it all to pieces, 'Opnieuw beginnen' says nothing "
                     + "ever happened. Rather have the real thing than the demo? Send me a message "
-                    + "through the contact form below: the app is yours, completely free.",
+                    + "through the contact form below, on WhatsApp or on Messenger: the app is "
+                    + "yours, completely free.",
                 nl: "Bloei houdt een dag samen: wat je eet en drinkt, je supplementen, je stemming "
                     + "en energie, en wekelijks je gewicht. Geen app die in het rood springt omdat "
                     + "je 42 calorieën te ver zit, wel eentje die ook opmerkt dat het gewoon een "
@@ -707,8 +708,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     + "versie draait op Vercel vanuit een privérepository; wat je hier ziet is de "
                     + "demo, met Sofie en haar verzonnen dag. Klik gerust alles kapot, met "
                     + "'Opnieuw beginnen' is er niets gebeurd. Liever de echte app dan de demo? "
-                    + "Stuur me een bericht via het contactformulier hieronder: ze is volledig "
-                    + "gratis."
+                    + "Stuur me een bericht via het contactformulier hieronder, via WhatsApp of "
+                    + "via Messenger: ze is volledig gratis."
             },
             tags: ["HTML", "CSS", "JavaScript", "Vite", "PWA"],
             demo: "https://bloei-demo.vercel.app/#/vandaag",
