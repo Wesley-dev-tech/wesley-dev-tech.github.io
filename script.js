@@ -676,6 +676,37 @@ document.addEventListener("DOMContentLoaded", function () {
             afbeelding: "images/noordpool-kerstavond.webp",
             code: "https://github.com/Wesley-dev-tech/noordpool-kerstavond"
         },
+        {
+            titel: "Bloei app",
+            slug: "bloei-app",
+            teaser: {
+                en: "A gentle daily diary for meals, drinks, supplements and weight. Try the demo: nothing you tap is kept.",
+                nl: "Een zacht dagboek voor eten, drinken, supplementen en gewicht. Probeer de demo: niets wat je aantikt blijft bewaard."
+            },
+            icoon: "fa-seedling",
+            beschrijving: {
+                en: "Bloei is a personal app that keeps a day together: meals, what you drink, your "
+                    + "supplements, your mood and energy, and your weight once a week. Not a strict "
+                    + "tracker shouting in red, but a calm diary that notices the good days too. "
+                    + "It's a progressive web app built with Vite, so it installs on an iPhone home "
+                    + "screen and keeps working without internet: everything lives locally in "
+                    + "IndexedDB. The real version runs on Vercel from a private repository, so what "
+                    + "you see here is a demo with invented data for 'Sofie'. Click anything you "
+                    + "like, nothing is saved. Hardest part? Not the code, but keeping it simple.",
+                nl: "Bloei is een persoonlijke app die een dag samenhoudt: maaltijden, wat je drinkt, "
+                    + "je supplementen, je stemming en energie, en wekelijks je gewicht. Geen strenge "
+                    + "tracker die in het rood staat te roepen, maar een rustig dagboek dat ook de "
+                    + "goeie dagen opmerkt. Het is een progressive web app gebouwd met Vite, dus ze "
+                    + "staat op het beginscherm van een iPhone en blijft werken zonder internet: "
+                    + "alles wordt lokaal in IndexedDB bewaard. De echte versie draait op Vercel "
+                    + "vanuit een privérepository, dus wat je hier ziet is een demo met verzonnen "
+                    + "gegevens van 'Sofie'. Klik gerust alles aan, niets blijft bewaard. Het "
+                    + "moeilijkste? Niet de code, maar het simpel houden."
+            },
+            tags: ["HTML", "CSS", "JavaScript", "Vite", "PWA"],
+            demo: "https://bloei-demo.vercel.app/#/vandaag",
+            afbeelding: "images/bloei-app.webp"
+        },
     ];
 
     const projectLijst = document.querySelector("#project-list");
