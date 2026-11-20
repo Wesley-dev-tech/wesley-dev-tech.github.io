@@ -48,7 +48,7 @@ Open `index.html` in a browser. An internet connection is required to load Boots
 
 ## Skills
 
-The same tech stack as on my GitHub profile: frontend (HTML, CSS, JavaScript, TypeScript, React, Angular, Vite, Bootstrap, Tailwind, Next.js, Vercel, Netlify, Apache Cordova), backend (Node.js, Express.js, PHP, Laravel, Hono.js, Fastify.js, Python, MySQL, Supabase), tools (Git, GitHub, GitHub Actions, GitHub Copilot, Jenkins, Linux, Jira, Trello, ClickUp, Notion, Cursor, OpenAI API, Vitest, Jest, Insomnia) and concepts (Monday, Scrum, REST API, MCP). Coursework includes sprint planning, planning poker, and a Kanban board in Trello.
+The same tech stack as on my GitHub profile: frontend (HTML, CSS, JavaScript, TypeScript, Angular, Vite, Bootstrap, Tailwind, Next.js, Vercel, Netlify, Apache Cordova), backend (Node.js, Express.js, PHP, Laravel, Hono.js, Fastify.js, Python, MySQL, Supabase), tools (Git, GitHub, GitHub Actions, GitHub Copilot, Jenkins, Linux, Jira, Trello, ClickUp, Notion, Cursor, OpenAI API, Vitest, Jest, Insomnia) and concepts (Monday, Scrum, REST API, MCP). Coursework includes sprint planning, planning poker, and a Kanban board in Trello.
 
 ## Features
 

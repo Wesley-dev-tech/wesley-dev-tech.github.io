@@ -372,7 +372,7 @@ function tekenCv(pdf, cv, k, s, teken, boven) {
 
             y += tagHoogte;
         }
-        // Zo klein dat de dertien frontendlogo's op één rij passen
+        // Zo klein dat de twaalf frontendlogo's op één rij passen
         const logoMaat = 4 * s;
 
         cv.vaardigheden.forEach(function (groep, index) {
